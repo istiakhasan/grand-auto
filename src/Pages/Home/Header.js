@@ -1,6 +1,5 @@
 import React from 'react';
 import banner from '../../assest/banner2.webp'
-import Navbar from '../Shared/Navbar';
 import BannerSlider from './BannerSlider';
 
 const Header = () => {
@@ -16,7 +15,7 @@ const Header = () => {
           className="w-full h-screen"  
             >
                
-            <Navbar />
+      
             <BannerSlider />
             
         </div>

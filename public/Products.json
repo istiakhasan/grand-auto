@@ -1,0 +1,62 @@
+[
+    {
+    
+    "name":"Chain Spocket",
+    "image":"https://i.ibb.co/TR8Rfgk/Chain-Spocket.jpg",
+    "description":"Made in India.100%best Quality.Item model number LIVO&DREAM NEO 110CC.Premium Quality Chain Sprocket sets",
+    "available_quantity":4000,
+    "minimum_quantity":1000,
+    "quantity":400,
+    "price":300
+ },
+    {
+    
+    "name":"Double Piston",
+    "image":"https://i.ibb.co/Tg2252N/Double-piston.webp",
+    "description":"Specifications of HONDA Chain Sprocket Set For HONDA LIVO DISC/DRUM-DREAM NEO-DREAM 110 Chain SPROCKET SET COMP_DRIVE",
+    "available_quantity":10000,
+    "minimum_quantity":1000,
+    "quantity":3000,
+    "price":300
+ },
+    {
+    
+    "name":"Front shocker",
+    "image":"https://i.ibb.co/Wf3w2Qj/front-shocker.jpg",
+    "description":"JCMOTO 45 / 48mm Front Fork Suspension Shocks Absorber End Leg Silder For Dirt Pit Pro Trail Bike | Motocross Upside Down Shocker (Gold)",
+    "available_quantity":5000,
+    "minimum_quantity":500,
+    "quantity":800,
+    "price":350
+ },
+    {
+    
+    "name":"Motor Engine",
+    "image":"https://i.ibb.co/gJTLXq4/Motorcycle-engine.jpg",
+    "description":"Can be used with almost all vertical-type single cylinder 2- or 4-stroke motorcycle engines (will not work with lay-down engines/ horizontal cylinders Frame assembles quickly with no tools needed, breaks down in just seconds for compact storage",
+    "available_quantity":2000,
+    "minimum_quantity":100,
+    "quantity":400,
+    "price":1500
+ },
+    {
+    
+    "name":"Speen Meter",
+    "image":"https://i.ibb.co/wyL4FMB/speed-meter.jpg",
+    "description":"It is good quality meter which is very good to use. It is light weight and long lasting. Basic task of this meter is to measure the speed of cycling. It is easy to install.",
+    "available_quantity":2300,
+    "minimum_quantity":200,
+    "quantity":400,
+    "price":5050
+ },
+    {
+    
+    "name":"Yamaha Helmet",
+    "image":"https://i.ibb.co/Vjv8cGZ/Yamaha-halmet.jpg",
+    "description":"Yamaha helmet is a range of motorcycle helmets that holds the YAMAHA badge by Yamaha Motorcycles. Therefore, Yamaha Motorcycles showcases a range of motorcycle helmets badged with Yamaha brand name for their customers including a range of riding gear & accessories and also some lifestyle products.",
+    "available_quantity":1800,
+    "minimum_quantity":100,
+    "quantity":250,
+    "price":899
+ }
+]

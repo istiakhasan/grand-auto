@@ -6,8 +6,11 @@ import auth from '../../firebase.init';
 const PrivateRoute = ({children}) => {
     const [user,loading,error]=useAuthState(auth)
     const location=useLocation()
+    if(loading){
+        return ;
+    }
     if(!user){
-        return <Navigate to="/" state={{from:location}} replace />
+        return <Navigate to="/login" state={{from:location}} replace />
     }
     return children
 };

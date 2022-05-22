@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Navbar from '../Shared/Navbar';
-import {useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useSignInWithGoogle} from 'react-firebase-hooks/auth'
+import {useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile} from 'react-firebase-hooks/auth'
 import auth from '../../firebase.init'
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [newUser,setNewUser]=useState(false)
@@ -13,6 +14,8 @@ const Login = () => {
     loading,
     error,
   ] = useCreateUserWithEmailAndPassword(auth);
+  //updating user 
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   //sign In with eamil and password 
   const [
     signInWithEmailAndPassword,
@@ -22,6 +25,9 @@ const Login = () => {
   ] = useSignInWithEmailAndPassword(auth);
   //sign in with google 
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+  const navigate=useNavigate()
+  const location=useLocation()
+  const from=location?.state?.from?.pathname || "/"
   
 
     const {
@@ -32,7 +38,8 @@ const Login = () => {
       } = useForm();
 
       if(user || signInuser || googleUser){
-        console.log(user)
+        console.log(user || signInuser || googleUser)
+        navigate(from,{replace:true})
        
       }
       const onSubmit = async(data) => {
@@ -41,7 +48,9 @@ const Login = () => {
              signInWithEmailAndPassword(email,password)
             reset()
          }else{
-             createUserWithEmailAndPassword(email,password)
+             await createUserWithEmailAndPassword(email,password);
+             await updateProfile({displayName:name})
+             
              reset()
          }
       }
