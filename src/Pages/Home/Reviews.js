@@ -15,7 +15,7 @@ const Reviews = () => {
         },
         {
             id:2,
-            rating:5,
+            rating:4,
             name:"Musarof",
             comment:"I want to say that their service is very nice and user friendly",
             image:"https://api.lorem.space/image/face?hash=92310",company:"Expo Crop"
@@ -29,7 +29,7 @@ const Reviews = () => {
         },
         {
             id:4,
-            rating:5,
+            rating:3,
             name:"Musarof",
             comment:"I want to say that their service is very nice and user friendly",
             image:"https://api.lorem.space/image/face?hash=92310",company:"Expo Crop"

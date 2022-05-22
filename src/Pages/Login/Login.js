@@ -1,20 +1,48 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Navbar from '../Shared/Navbar';
+import {useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useSignInWithGoogle} from 'react-firebase-hooks/auth'
+import auth from '../../firebase.init'
 
 const Login = () => {
-    const [newUser,setNewUser]=useState(false)
+  const [newUser,setNewUser]=useState(false)
+  //resester user with eamil and password 
+  const [
+    createUserWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useCreateUserWithEmailAndPassword(auth);
+  //sign In with eamil and password 
+  const [
+    signInWithEmailAndPassword,
+    signInuser,
+    signInloading,
+    signInerror,
+  ] = useSignInWithEmailAndPassword(auth);
+  //sign in with google 
+  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+  
+
     const {
         register,
         formState: { errors },
         handleSubmit,
+        reset
       } = useForm();
+
+      if(user || signInuser || googleUser){
+        console.log(user)
+       
+      }
       const onSubmit = async(data) => {
           const {name,email,password}=data
          if(!newUser){
-             console.log(email,password)
+             signInWithEmailAndPassword(email,password)
+            reset()
          }else{
-             console.log("lol")
+             createUserWithEmailAndPassword(email,password)
+             reset()
          }
       }
     return (
@@ -114,6 +142,7 @@ const Login = () => {
               </div>
               <p className='text-center font-semibold'><small>{!newUser?"Don't have a account?":"Already have a account?"} </small><span onClick={()=>setNewUser(!newUser)} className='text-primary font-semibold cursor-pointer'>{!newUser?"Register":"Login"}</span></p>
             </form>
+            <button onClick={()=>signInWithGoogle()} className="btn btn-outline btn-primary mx-8 mb-10">Google Sign In</button>
           </div>
           <div className="text-center w-6/12 lg:text-left text-white">
             <h1 className="text-5xl font-bold">{!newUser?"Login now!":"Sign Up"}</h1>
