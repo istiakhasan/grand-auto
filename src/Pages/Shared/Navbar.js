@@ -12,15 +12,15 @@ const Navbar = () => {
             </label>
             <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow  bg-base-100 rounded-box w-52">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/">About</Link></li>
+            <li><Link to="/login">Login</Link></li>
             <li><Link to="/">About</Link></li>
             <li><Link to="/ro">About</Link></li>
             <li><Link to="/ro">About</Link></li>
             </ul>
           </div>
           <ul className="menu hidden lg:flex  menu-horizontal text-white p-0 gap-x-16">
-            <li><Link to="/rr">Home</Link></li>
-            <li><Link to="/rr">About</Link></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/login">Lgoin</Link></li>
             <li><Link to="/rr">About</Link></li>
             <li><Link to="/rr">About</Link></li>
             <li><Link to="/rr">About</Link></li>
