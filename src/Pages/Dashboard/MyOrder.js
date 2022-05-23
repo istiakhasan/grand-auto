@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import auth from "../../firebase.init";
+import CancelModal from "./CancelModal";
+import OrderRow from "./OrderRow";
 
 const MyOrder = () => {
+  const [deleteOrder,setDeleteOrder]=useState(null)
+  console.log(deleteOrder)
   const [user] = useAuthState(auth);
-  const { data: myorder, isLoading } = useQuery("myorder", () =>
+  const { data: myorder, isLoading,refetch } = useQuery("myorder", () =>
     fetch(`http://localhost:4000/order?email=${user.email}`).then((res) =>
       res.json()
     )
@@ -34,21 +38,11 @@ const MyOrder = () => {
           </thead>
           <tbody>
             {myorder.map((item, i) => (
-              <tr>
-                <th>{i + 1}</th>
-                <td>{item.customerName}</td>
-                <td>{item.email}</td>
-                <td>{item.toolsName}</td>
-                <td>{item.orderQuantity}</td>
-                <td>{item.totalPrice}</td>
-                <td>
-                  <button class="btn bg-red-600 border-0 hover:bg-red-800 text-white font-semibold btn-xs mr-2 ">Cancel</button>
-                  <button class="btn btn-active btn-primary font-semibold text-white btn-xs">Pay</button>
-                </td>
-              </tr>
+             <OrderRow setDeleteOrder={setDeleteOrder} key={item._id} item={item} i={i} />
             ))}
           </tbody>
         </table>
+       {deleteOrder && <CancelModal deleteOrder={deleteOrder} refetch={refetch} setDeleteOrder={setDeleteOrder}  />}
       </div>
     </div>
   );

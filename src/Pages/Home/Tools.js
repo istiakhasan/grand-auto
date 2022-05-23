@@ -64,6 +64,7 @@ const Tools = () => {
     if(isLoading){
         return ;
     }
+    console.log(tools)
     return (
         <div className='max-w-7xl mx-auto'>
             <h2 className='text-center text-4xl text-primary font-bold my-20'>Our Tools</h2>
