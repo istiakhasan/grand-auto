@@ -73,7 +73,7 @@ const PurchaseModal = ({tool,newOrderQuantity,setIsOpen,refetch}) => {
                 <span className="label-text">Your Name:</span>
               </label>
               <input
-                type="email"
+                type="text"
                 disabled
                 value={user.displayName}
                 className="input input-bordered input-primary w-full max-w-xs  "
