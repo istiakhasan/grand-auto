@@ -1,9 +1,10 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
-const PurchaseModal = ({tool,newOrderQuantity,setNewOrderQuantity}) => {
+const PurchaseModal = ({tool,newOrderQuantity,setIsOpen,refetch}) => {
   const [user] = useAuthState(auth);
   const {_id,name,price}=tool;
   const {
@@ -25,7 +26,21 @@ const PurchaseModal = ({tool,newOrderQuantity,setNewOrderQuantity}) => {
           phone:phone,
           totalPrice:totalPrice
       }
-   console.log(order)
+    fetch('http://localhost:4000/order',{
+      method:"POST",
+      headers:{
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(order)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      
+      toast("Order parts successfully")
+      refetch()
+      reset()
+      setIsOpen(false)
+    })
 }
   return (
     <div>

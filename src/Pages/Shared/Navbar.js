@@ -11,16 +11,16 @@ const Navbar = () => {
   }
     const menuLinks=<>
     
-    <li><Link to="/">Home</Link></li>
+               <li><Link to="/">Home</Link></li>
              <li><Link to="/rr">About</Link></li>
              <li><Link to="/rr">About</Link></li>
-             <li><Link to="/rr">About</Link></li>
+             {user &&  <li><Link to="/dashboard">Dashboard</Link></li>}
              {user && <li><button className='btn normal-case' onClick={handleSignOut}>Log Out</button></li>}
              {!user && <li><Link to="/login">Login</Link></li>}
     </>
     return (
     
-            <div className="navbar sticky top-0 z-50 ">
+            <div className="navbar sticky bg-primary top-0 z-50 ">
         <div className="navbar-start">
           <div className="dropdown ">
             <label tabindex="0" className="btn btn-ghost text-white lg:hidden">

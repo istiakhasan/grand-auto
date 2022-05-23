@@ -59,7 +59,8 @@ const Tools = () => {
     //     price:500
     //  },
     // ]
-    const{data:tools,isLoading}=useQuery('tools',()=>fetch('http://localhost:4000/tools').then(res=>res.json()))
+    const{data:tools,isLoading}=useQuery('tools',()=>fetch('http://localhost:4000/availabletools').then(res=>res.json()))
+    console.log(tools)
     if(isLoading){
         return ;
     }

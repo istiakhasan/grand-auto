@@ -14,7 +14,7 @@ const Purchase = () => {
      const {toolsId}=useParams();
      const [isOpen,setIsOpen]=useState(false)
      const url=`http://localhost:4000/tools/${toolsId}`
-     const {data:tool,isLoading}=useQuery(`tool${toolsId}`,()=>fetch(url).then(res=>res.json()))
+     const {data:tool,isLoading,refetch}=useQuery(`tool${toolsId}`,()=>fetch(url).then(res=>res.json()))
      
      const [newOrderQuantity,setNewOrderQuantity]=useState(tool?.minimum_quantity)
      
@@ -106,7 +106,7 @@ const Purchase = () => {
           </div>
         </div>
       </div>
-     {isOpen && <PurchaseModal setNewOrderQuantity={setNewOrderQuantity} newOrderQuantity={newOrderQuantity} tool={tool} />}
+     {isOpen && <PurchaseModal refetch={refetch} setIsOpen={setIsOpen} newOrderQuantity={newOrderQuantity} tool={tool} />}
     </div>
   );
 };

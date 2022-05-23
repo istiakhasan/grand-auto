@@ -10,6 +10,7 @@ const Tool = ({tool}) => {
   
     <p>{tool.description.slice(0,50)}...</p>
     <p>Qty:{tool.quantity}</p>
+    <p>Qty:{tool.available_quantity}</p>
     <p>${tool.price}</p>
     <div class="card-actions justify-end">
       <Link to={`/purchase/${tool._id}`} class="btn btn-sm btn-primary uppercase">purchase</Link>
