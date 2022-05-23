@@ -72,14 +72,16 @@ const CheckoutForm = ({orderdProduc}) => {
               setPaymentError('')
               setTransectionId(paymentIntent.id)
               setSuccess("Your payment completed successfully")
-
-
+             const paymentData={
+                transectionId:paymentIntent.id
+              }
+            
              fetch(`http://localhost:4000/order/${_id}`,{
                  method:"PATCH",
                  headers:{
                      'content-type':'application/json'
                  },
-                 body:JSON.stringify({transectionId})
+                 body:JSON.stringify(paymentData)
              })
               .then(res=>res.json())
               .then(data=>{
