@@ -5,9 +5,9 @@ const Dashboard = () => {
     return (
         <div class="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content">
+        <div class="drawer-content pl-10 pt-10">
          {/* page content here */}
-         <h2 className='text-primary text-4xl text-center font-semibold mt-3'>Welcome to your dashboard</h2>
+         {/* <h2 className='text-primary text-4xl text-center font-semibold mt-3'>Welcome to your dashboard</h2> */}
          <Outlet />
 
 

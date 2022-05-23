@@ -12,8 +12,8 @@ const OrderRow = ({i,item,setDeleteOrder}) => {
         <td>{item.orderQuantity}</td>
         <td>{item.totalPrice}</td>
         <td>
-          <label onClick={()=>setDeleteOrder(item)} for="cancelModal" class="btn bg-red-600 border-0 hover:bg-red-800 text-white font-semibold btn-xs mr-2 ">Cancel</label>
-          <Link to={`/dashboard/payment/${item._id}`} class="btn btn-active btn-primary font-semibold text-white btn-xs">Pay</Link>
+         {!item.pay && <label onClick={()=>setDeleteOrder(item)} for="cancelModal" class="btn bg-red-600 border-0 hover:bg-red-800 text-white font-semibold btn-xs mr-2 ">Cancel</label>}
+          {item.pay? <span className='text-green-500 font-bold'>Paid</span>  :<Link to={`/dashboard/payment/${item._id}`} class="btn btn-active btn-primary font-semibold text-white btn-xs">Pay</Link>}
         </td>
       </tr><div>
             

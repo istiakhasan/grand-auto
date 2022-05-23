@@ -11,7 +11,7 @@ const Payment = () => {
     
     const url = `http://localhost:4000/order/${paymentId}`;
 
-    const { data: payment, isLoading } = useQuery(['order', paymentId], () => fetch(url, {
+    const { data: orderdProduc, isLoading } = useQuery(['order', paymentId], () => fetch(url, {
         method: 'GET',
       
     }).then(res => res.json()));
@@ -22,7 +22,7 @@ const Payment = () => {
     return (
         <div>
            
-            <h2 className='text-primary text-2xl font-semibold'>Please Complete Your Payment</h2>
+            <h2 className='text-primary text-3xl mt-5 font-semibold text-center'>Please Complete Your Payment</h2>
             
            
  
@@ -30,13 +30,13 @@ const Payment = () => {
           
             <div class="card w-50 mx-auto max-w-md text-white shadow-xl bg-primary my-12 h-auto p-20">
                
-                <h2 class=" text-2xl font-semibold ">{payment.toolsName}</h2>
-                <h2 class="font-semibold text-white">{payment.toolsId}</h2>
-                 <p className=''>Price: ${payment.totalPrice}</p>
-                 <p className='mb-5'>Quantity: ${payment.orderQuantity}</p>
-                <p className='text-success'><small><strong>Please enter your card number for payment</strong></small></p>
+                <h2 class=" text-2xl font-semibold ">{orderdProduc.toolsName}</h2>
+                <h2 class="font-semibold text-white">{orderdProduc.toolsId}</h2>
+                 <p className=''>Total Price: ${orderdProduc.totalPrice}</p>
+                 <p className='mb-5'>Quantity: {orderdProduc.orderQuantity}</p>
+                <p className='text-black'><small><strong>Please enter your card number for payment</strong></small></p>
                     <Elements stripe={stripePromise}>
-                        <CheckoutForm />
+                        <CheckoutForm orderdProduc={orderdProduc} />
                     </Elements>
             </div>
             
