@@ -28,13 +28,13 @@ function App() {
          <PrivateRoute>
          <Purchase />
           </PrivateRoute>} />
-       <Route path='/dashboard' element={
+       <Route path='dashboard' element={
          <PrivateRoute>
          <Dashboard /> 
           </PrivateRoute>}>
-           <Route index path='order' element={<MyOrder />}></Route>  
-           <Route index path='myreview' element={<AddReview />}></Route>  
-           <Route index path='myprofile' element={<MyProfile />}></Route>  
+           <Route index  element={<MyOrder />}></Route>  
+           <Route  path='myreview' element={<AddReview />}></Route>  
+           <Route  path='myprofile' element={<MyProfile />}></Route>  
             
           </Route>
       </Routes>
