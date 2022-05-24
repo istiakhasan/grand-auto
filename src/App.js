@@ -16,6 +16,7 @@ import Payment from './Pages/Dashboard/Payment';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 import AdminPrivateRoute from './Pages/Login/AdminPrivateRoute';
 import AddProducts from './Pages/Dashboard/AddProducts';
+import NotFound from './Pages/Shared/NotFound';
 
 
 
@@ -43,6 +44,7 @@ function App() {
            <Route  path='addproduct' element={<AdminPrivateRoute><AddProducts /></AdminPrivateRoute>}></Route>  
            <Route  path='payment/:paymentId' element={<Payment />}></Route>  
           </Route>
+           <Route path='*' element={<NotFound />} />
       </Routes>
        <Footer />
         
