@@ -17,6 +17,7 @@ import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 import AdminPrivateRoute from './Pages/Login/AdminPrivateRoute';
 import AddProducts from './Pages/Dashboard/AddProducts';
 import NotFound from './Pages/Shared/NotFound';
+import Blog from './Pages/Blog/Blog';
 
 
 
@@ -28,6 +29,7 @@ function App() {
       <Routes>
        <Route path='/' element={<Home />} />
        <Route path='/login' element={<Login />} />
+       <Route path='/blog' element={<Blog />} />
        
        <Route path='/purchase/:toolsId' element={
          <PrivateRoute>
