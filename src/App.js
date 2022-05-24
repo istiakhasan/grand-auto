@@ -14,6 +14,8 @@ import AddReview from './Pages/Dashboard/AddReview';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Payment from './Pages/Dashboard/Payment';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin';
+import AdminPrivateRoute from './Pages/Login/AdminPrivateRoute';
+import AddProducts from './Pages/Dashboard/AddProducts';
 
 
 
@@ -33,13 +35,13 @@ function App() {
        <Route path='dashboard' element={
          <PrivateRoute>
          <Dashboard /> 
-          </PrivateRoute>}>
+        </PrivateRoute>}>
            <Route index  element={<MyOrder />}></Route>  
            <Route  path='myreview' element={<AddReview />}></Route>  
            <Route  path='myprofile' element={<MyProfile />}></Route>  
-           <Route  path='makeadmin' element={<MakeAdmin />}></Route>  
+           <Route  path='makeadmin' element={<AdminPrivateRoute><MakeAdmin /></AdminPrivateRoute>}></Route>  
+           <Route  path='addproduct' element={<AdminPrivateRoute><AddProducts /></AdminPrivateRoute>}></Route>  
            <Route  path='payment/:paymentId' element={<Payment />}></Route>  
-            
           </Route>
       </Routes>
        <Footer />

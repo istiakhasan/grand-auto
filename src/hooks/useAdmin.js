@@ -6,7 +6,6 @@ const useAdmin=(user)=>{
 
     useEffect(()=>{
         const email=user?.email
-        console.log(email)
         if(email){
             fetch(`http://localhost:4000/admin?email=${email}`)
             .then(res=>res.json())
