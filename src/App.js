@@ -18,6 +18,7 @@ import AdminPrivateRoute from './Pages/Login/AdminPrivateRoute';
 import AddProducts from './Pages/Dashboard/AddProducts';
 import NotFound from './Pages/Shared/NotFound';
 import Blog from './Pages/Blog/Blog';
+import Portfolio from './Pages/Portfolio/Portfolio';
 
 
 
@@ -30,6 +31,7 @@ function App() {
        <Route path='/' element={<Home />} />
        <Route path='/login' element={<Login />} />
        <Route path='/blog' element={<Blog />} />
+       <Route path='/portfolio' element={<Portfolio />} />
        
        <Route path='/purchase/:toolsId' element={
          <PrivateRoute>
