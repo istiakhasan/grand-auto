@@ -7,14 +7,15 @@ import OrderRow from "./OrderRow";
 
 const MyOrder = () => {
   const [deleteOrder,setDeleteOrder]=useState(null)
-  console.log(deleteOrder)
+  
   const [user] = useAuthState(auth);
   const { data: myorder, isLoading,refetch } = useQuery("myorder", () =>
     fetch(`http://localhost:4000/order?email=${user.email}`).then((res) =>
       res.json()
     )
   );
-  console.log(myorder, "lol");
+
+  
   if (isLoading) {
     return;
   }
@@ -23,8 +24,8 @@ const MyOrder = () => {
       <h2 className="font-semibold text-2xl text-primary">
         My All Order List:{myorder.length}
       </h2>
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full">
+      <div className="overflow-x-auto">
+        <table className="table table-zebra w-full">
           <thead>
             <tr>
               <th></th>
@@ -37,7 +38,8 @@ const MyOrder = () => {
             </tr>
           </thead>
           <tbody>
-            {myorder.map((item, i) => (
+           
+            {myorder?.map((item, i) => (
              <OrderRow setDeleteOrder={setDeleteOrder} key={item._id} item={item} i={i} />
             ))}
           </tbody>

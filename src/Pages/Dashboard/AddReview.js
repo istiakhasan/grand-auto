@@ -69,37 +69,37 @@ const AddReview = () => {
         <form   onSubmit={handleSubmit} action="">
          <div className="flex">
          <div className="mr-10 w-4/12">
-            <div class="form-control w-full ">
-              <label class="label">
-                <span class="label-text">Whats your company name?</span>
+            <div className="form-control w-full ">
+              <label className="label">
+                <span className="label-text">Whats your company name?</span>
               </label>
               <input
                 required
                 type="text"
                 name="company"
                 placeholder="Type here"
-                class="input input-bordered input-primary w-full "
+                className="input input-bordered input-primary w-full "
               />
             </div>
-            <div class="form-control w-full ">
-              <label class="label">
-                <span class="label-text">Enter your Comments</span>
+            <div className="form-control w-full ">
+              <label className="label">
+                <span className="label-text">Enter your Comments</span>
               </label>
               <textarea
                 required
                 name="comment"
                 rows="5"
-                class="textarea textarea-primary"
+                className="textarea textarea-primary"
                 placeholder="Comment"
               ></textarea>
             </div>
           </div>
           <div className="w-96">
-            <div class="form-control w-full max-w-xs">
-              <label class="label text-xs">Upload your image</label>
+            <div className="form-control w-full max-w-xs">
+              <label className="label text-xs">Upload your image</label>
               <label
                 htmlFor="imageupload"
-                class="label cursor-pointer border bg-purple-200 border-primary rounded flex justify-center"
+                className="label cursor-pointer border bg-purple-200 border-primary rounded flex justify-center"
               >
                 <CloudUploadIcon className=" h-8 text-primary" />
               </label>
@@ -107,49 +107,49 @@ const AddReview = () => {
                 id="imageupload"
                 type="file"
                 name="image"
-                class="input input-bordered input-primary hidden w-full max-w-xs"
+                className="input input-bordered input-primary hidden w-full max-w-xs"
               />
               <p className="text-red-500 font-semibold">{requiredImage}</p>
             </div>
-            <div class="form-control w-full mt-10 ">
-              <label class="label">
-                <span class="label-text">Enter your rating</span>
+            <div className="form-control w-full mt-10 ">
+              <label className="label">
+                <span className="label-text">Enter your rating</span>
               </label>
-              <div class="rating">
+              <div className="rating">
                 <input
                   required
                   type="radio"
                   value="1"
                   name="rating"
-                  class="mask mask-star-2 bg-orange-400"
+                  className="mask mask-star-2 bg-orange-400"
                 />
                 <input
                   required
                   type="radio"
                   value="2"
                   name="rating"
-                  class="mask mask-star-2 bg-orange-400"
+                  className="mask mask-star-2 bg-orange-400"
                 />
                 <input
                   required
                   type="radio"
                   value="3"
                   name="rating"
-                  class="mask mask-star-2 bg-orange-400"
+                  className="mask mask-star-2 bg-orange-400"
                 />
                 <input
                   required
                   type="radio"
                   value="4"
                   name="rating"
-                  class="mask mask-star-2 bg-orange-400"
+                  className="mask mask-star-2 bg-orange-400"
                 />
                 <input
                   required
                   type="radio"
                   value="5"
                   name="rating"
-                  class="mask mask-star-2 bg-orange-400"
+                  className="mask mask-star-2 bg-orange-400"
                 />
               </div>
             </div>

@@ -28,10 +28,10 @@ const Payment = () => {
  
  
           
-            <div class="card w-50 mx-auto max-w-md text-white shadow-xl bg-primary my-12 h-auto p-20">
+            <div className="card w-50 mx-auto max-w-md text-white shadow-xl bg-primary my-12 h-auto p-20">
                
-                <h2 class=" text-2xl font-semibold ">{orderdProduc.toolsName}</h2>
-                <h2 class="font-semibold text-white">{orderdProduc.toolsId}</h2>
+                <h2 className=" text-2xl font-semibold ">{orderdProduc.toolsName}</h2>
+                <h2 className="font-semibold text-white">{orderdProduc.toolsId}</h2>
                  <p className=''>Total Price: ${orderdProduc.totalPrice}</p>
                  <p className='mb-5'>Quantity: {orderdProduc.orderQuantity}</p>
                 <p className='text-black'><small><strong>Please enter your card number for payment</strong></small></p>

@@ -60,11 +60,11 @@ const Tools = () => {
     //  },
     // ]
     const{data:tools,isLoading}=useQuery('tools',()=>fetch('http://localhost:4000/availabletools').then(res=>res.json()))
-    console.log(tools)
+
     if(isLoading){
         return ;
     }
-    console.log(tools)
+   
     return (
         <div className='max-w-7xl mx-auto'>
             <h2 className='text-center text-4xl text-primary font-bold my-20'>Our Tools</h2>

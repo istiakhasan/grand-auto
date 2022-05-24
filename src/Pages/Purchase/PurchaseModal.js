@@ -48,7 +48,7 @@ const PurchaseModal = ({tool,newOrderQuantity,setIsOpen,refetch}) => {
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <label
-            for="purchaseModal"
+            htmlFor="purchaseModal"
             className="btn  btn-sm btn-circle absolute right-5 top-5"
           >
             ✕
@@ -91,21 +91,7 @@ const PurchaseModal = ({tool,newOrderQuantity,setIsOpen,refetch}) => {
                   value={newOrderQuantity || tool.minimum_quantity}
                   placeholder="Enter quantity"
                   className="input input-bordered input-primary w-full max-w-xs"
-                  {...register("quantity", {
-                      // required:{
-                      //  value:true,
-                      //  message:'quantity is Required'
-  
-                      // },
-                      // min:{
-                      //     value:tool.minimum_order,
-                      //     message:`Please order minimum  ${tool.minimum_order} products`
-                      // }, 
-                      // max:{
-                      //     value:tool.quantity,
-                      //     message:`Yur can't order more then   ${tool.quantity} products`
-                      // } 
-                    })}
+                  {...register("quantity")}
                 />
                  <label className="label">
                     {errors.quantity?.type==='required'&& <span className="label-text-alt text-red-700 font-bold">{errors.quantity.message}</span>}

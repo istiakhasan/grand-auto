@@ -1,6 +1,7 @@
 
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const CheckoutForm = ({orderdProduc}) => {
     const {totalPrice,eamil,customerName,_id}=orderdProduc;
@@ -85,7 +86,7 @@ const CheckoutForm = ({orderdProduc}) => {
              })
               .then(res=>res.json())
               .then(data=>{
-                  console.log(data,"update successfully")
+                  toast.success("Payment data inserted successfully")
               }) 
           }
 
