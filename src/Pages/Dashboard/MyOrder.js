@@ -9,16 +9,30 @@ const MyOrder = () => {
   const [deleteOrder,setDeleteOrder]=useState(null)
   
   const [user] = useAuthState(auth);
-  const { data: myorder, isLoading,refetch } = useQuery("myorder", () =>
-    fetch(`http://localhost:4000/order?email=${user.email}`).then((res) =>
-      res.json()
-    )
-  );
+
+    const { data: myorder, isLoading,refetch } = useQuery("myorder", () =>
+
+   
+      fetch(`http://localhost:4000/order?email=${user.email}`,{
+        headers:{
+          'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+        }
+      }).then((res) =>
+        res.json()
+      ).catch(error=>{
+        console.log(error,"kam hocche na")
+      })
+     
+  
+  )
+ 
+
 
   
   if (isLoading) {
     return;
   }
+
   return (
     <div>
       <h2 className="font-semibold text-2xl text-primary">

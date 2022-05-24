@@ -13,6 +13,7 @@ import MyOrder from './Pages/Dashboard/MyOrder';
 import AddReview from './Pages/Dashboard/AddReview';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Payment from './Pages/Dashboard/Payment';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 
 
 
@@ -36,6 +37,7 @@ function App() {
            <Route index  element={<MyOrder />}></Route>  
            <Route  path='myreview' element={<AddReview />}></Route>  
            <Route  path='myprofile' element={<MyProfile />}></Route>  
+           <Route  path='makeadmin' element={<MakeAdmin />}></Route>  
            <Route  path='payment/:paymentId' element={<Payment />}></Route>  
             
           </Route>
