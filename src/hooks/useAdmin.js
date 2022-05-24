@@ -1,26 +1,27 @@
-// import { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
-// const useAdmin=(user)=>{
-//     const [admin,setAdmin]=useState(false);
-//     const [loadingAdmin,setLoadingAdmin]=useState(true)
+const useAdmin=(user)=>{
+    const [admin,setAdmin]=useState(false);
+    const [loadingAdmin,setLoadingAdmin]=useState(true)
 
-//     useEffect(()=>{
-//         const email=user?.email
-//         console.log(email)
-//         if(email){
-//             fetch(`http://localhost:4000/admin?email=${email}`)
-//             .then(res=>res.json())
-//             .then(data=>{
-//                     setAdmin(data.admin)
-//                     setLoadingAdmin(false)
-//             })
+    useEffect(()=>{
+        const email=user?.email
+        console.log(email)
+        if(email){
+            fetch(`http://localhost:4000/admin?email=${email}`)
+            .then(res=>res.json())
+            .then(data=>{
+                    setAdmin(data.admin)
+                    setLoadingAdmin(false)
+            })
 
-//         }
+        }
      
-//     },[user])
-//     return {admin,loadingAdmin}
+    },[user])
+    console.log("check",admin)
+    return {admin,loadingAdmin}
 
-// }
+}
 
 
-// export default useAdmin
+export default useAdmin
