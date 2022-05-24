@@ -46,8 +46,8 @@ const AddReview = () => {
             body: JSON.stringify(review)
         })
         .then(res =>res.json())
-        .then(inserted =>{
-            if(inserted.insertedId){
+        .then(data =>{
+            if(data.insertedId){
                 toast.success('Review successfully')
                 e.target.reset()
             }

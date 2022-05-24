@@ -51,7 +51,7 @@ const CheckoutForm = ({orderdProduc}) => {
         }else{
             setPaymentError('')
         }
-        //confirm card payment 
+      
         const {paymentIntent, error:paymentSuccessError} = await stripe.confirmCardPayment(
             clientSecret,
             {
