@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
+import Footer from "../Shared/Footer";
+import Navbar from "../Shared/Navbar";
 import PurchaseModal from "./PurchaseModal";
 
 const Purchase = () => {
@@ -61,8 +63,8 @@ const Purchase = () => {
           
     }
   return (
-    <div>
-      
+    <>
+      <Navbar />
       <div className="hero min-h-screen bg-base-200">
      
         <div className=" grid lg:grid-cols-2 ">
@@ -107,7 +109,8 @@ const Purchase = () => {
         </div>
       </div>
      {isOpen && <PurchaseModal refetch={refetch} setIsOpen={setIsOpen} newOrderQuantity={newOrderQuantity} tool={tool} />}
-    </div>
+     <Footer />
+    </>
   );
 };
 

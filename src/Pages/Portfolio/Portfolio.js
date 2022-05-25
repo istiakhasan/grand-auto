@@ -1,11 +1,15 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import Footer from "../Shared/Footer";
+import Navbar from "../Shared/Navbar";
 import MySkill from "./MySkill";
 import Projects from "./Projects";
 import Timeline from "./Timeline";
 
 const Portfolio = () => {
   return (
+    <>
+    <Navbar />
     <div className="  my-20 max-w-7xl mx-auto">
        <Helmet><title>Portfolio</title></Helmet>
         <div className="mx-10">
@@ -48,6 +52,8 @@ const Portfolio = () => {
       </div>
       <Projects />
     </div>
+    <Footer />
+    </>
   );
 };
 

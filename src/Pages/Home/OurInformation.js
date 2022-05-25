@@ -4,7 +4,7 @@ import InformationCartd from './InformationCartd';
 
 const OurInformation = () => {
     return (
-        <div className='grid mx-10 lg:mx-0  lg:grid-cols-3 gap-5'>
+        <div className='grid mx-10 lg:mx-0 text-white  lg:grid-cols-3 gap-5'>
             <InformationCartd title="Our Location" number="(+088) 01306910346" mail="info.grandauto@cleanit.com" >
                 <LocationMarkerIcon className=' h-20 w-20 mx-auto rounded-full hover:bg-yellow-600 text-yellow-600 hover:text-white p-5 border border-yellow-600'  />
             </InformationCartd>

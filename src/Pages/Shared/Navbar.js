@@ -7,8 +7,8 @@ import auth from "../../firebase.init";
 import Loading from "./Loading";
 
 const Navbar = () => {
-   const {pathname}=useLocation()
-  const [user,loading] = useAuthState(auth);
+  const { pathname } = useLocation();
+  const [user, loading] = useAuthState(auth);
   const handleSignOut = () => {
     signOut(auth);
   };
@@ -23,32 +23,32 @@ const Navbar = () => {
       <li>
         <Link to="/Portfolio">Portfolio</Link>
       </li>
-     
-      {
-        loading? <li><Loading /> </li> : <>
-          {user ? 
-            <> 
-            <li>
-              <Link to="dashboard">Dashboard</Link>
-            </li>
-            <li>
-              <button className="btn normal-case" onClick={handleSignOut}>
-                Log Out
-              </button>
-            </li>
+
+      {loading ? (
+        <li>
+          <Loading />{" "}
+        </li>
+      ) : (
+        <>
+          {user ? (
+            <>
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+              <li>
+                <button className="btn normal-case" onClick={handleSignOut}>
+                  Log Out
+                </button>
+              </li>
             </>
-          
-         :
+          ) : (
             <li>
               <Link to="/login">Login</Link>
             </li>
-    }
+          )}
+        </>
+      )}
     </>
-        
-      }
-    </>
-
-   
   );
   return (
     <div className="navbar sticky bg-primary top-0 z-50 ">
@@ -86,11 +86,17 @@ const Navbar = () => {
           GrandAuto
         </Link>
       </div>
-     { pathname.includes('dashboard') && <div className="navbar-end lg:hidden text-white">
-      <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden"> <MenuAlt2Icon className="w-8 h-8" /></label>
-     
-      </div>}
-     
+      {pathname.includes("dashboard") && (
+        <div className="navbar-end lg:hidden text-white">
+          <label
+            htmlFor="my-drawer-2"
+            className="btn btn-primary drawer-button lg:hidden"
+          >
+            {" "}
+            <MenuAlt2Icon className="w-8 h-8" />
+          </label>
+        </div>
+      )}
     </div>
   );
 };

@@ -5,11 +5,15 @@ import auth from '../../firebase.init'
 import useAdmin from '../../hooks/useAdmin';
 import Loading from '../Shared/Loading'
 import { Helmet } from 'react-helmet-async';
+import Footer from '../Shared/Footer';
+import Navbar from '../Shared/Navbar';
 
 const Dashboard = () => {
   const [user]=useAuthState(auth);
   const {admin,loadingAdmin} =useAdmin(user)
     return (
+      <>
+      <Navbar />
         <div className="drawer drawer-mobile">
            <Helmet><title>Dashboard</title></Helmet>
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -50,6 +54,8 @@ const Dashboard = () => {
         
         </div>
       </div>
+      <Footer />
+      </>
     );
 };
 

@@ -23,15 +23,14 @@ import DashboardHome from './Pages/Dashboard/DashboardHome';
 import ManageOrders from './Pages/Dashboard/ManageOrders';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
 
-
-
 function App() {
   return (
     <div>
       
-     <Navbar />
+     
       <Routes>
        <Route path='/' element={<Home />} />
+       <Route path='/home' element={<Home />} />
        <Route path='/login' element={<Login />} />
        <Route path='/blog' element={<Blog />} />
        <Route path='/portfolio' element={<Portfolio />} />
@@ -56,13 +55,6 @@ function App() {
           </Route>
            <Route path='*' element={<NotFound />} />
       </Routes>
-       <Footer />
-        
-     
-       
-     
-       
-     
        <ToastContainer />
     </div>
   );

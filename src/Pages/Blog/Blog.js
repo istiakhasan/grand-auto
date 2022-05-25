@@ -1,8 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import Footer from '../Shared/Footer';
+import Navbar from '../Shared/Navbar';
 
 const Blog = () => {
     return (
+        <>
+            <Navbar />
         <div>
              <Helmet><title>Blog</title></Helmet>
             <div className='text-lg lg:w-6/12 mx-5   shadow-lg lg:mx-auto my-12 p-10'>
@@ -54,6 +58,8 @@ const Blog = () => {
             </div>
             
         </div>
+        <Footer />
+        </>
     );
 };
 
