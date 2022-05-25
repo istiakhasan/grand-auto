@@ -1,19 +1,24 @@
 import React from "react";
+import { toast } from "react-toastify";
 
-const ShiftModa = ({ deleteOrder, refetch, setDeleteOrder }) => {
-  const handleDeleteOrder=()=>{
-    fetch(`http://localhost:4000/order/${deleteOrder._id}`,{
-      method:"DELETE"
+const ShiftModa = ({shiftOrder,refetch,setShiftOrder}) => {
+  const handleShiftOrder=()=>{
+    const url=`http://localhost:4000/updatestatus/${shiftOrder._id}`
+    fetch(url,{
+        method:"PATCH",
+        headers:{
+            'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+        }
     })
     .then(res=>res.json())
     .then(data=>{
-      if(data.deletedCount){
-       setDeleteOrder(null)
-       refetch()
-      }
-      
+        console.log(data)
+        setShiftOrder(null)
+        toast.success("Shift successfully")
+        refetch()
     })
-  }
+}
+
   return (
     <div>
       <input type="checkbox" id="shiftmodal" class="modal-toggle" />
@@ -25,12 +30,12 @@ const ShiftModa = ({ deleteOrder, refetch, setDeleteOrder }) => {
             product in your list if your delete !!
           </p>
           <div className="modal-action">
-            <button onClick={handleDeleteOrder} className="btn bg-red-600 hover:bg-red-700 border-0 btn-sm text-white">
-              Delete
+            <button onClick={handleShiftOrder}  className="btn bg-green-600 hover:bg-green-700 border-0 btn-sm text-white">
+              Confirm
             </button>
             <label
               for="shiftmodal"
-              className="btn btn-sm bg-green-600 text-white border-0 hover:bg-green-700"
+              className="btn btn-sm bg-red-600 text-white border-0 hover:bg-red-700"
             >
               Cancel
             </label>

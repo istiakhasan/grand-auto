@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 import ManageOrdersRow from './ManageOrdersRow';
+import OrderDeleteModal from './OrderDeleteModal';
 import ShiftModal from './ShiftModal';
 
 const ManageOrders = () => {
   const [deleteOrder,setDeleteOrder]=useState(null)
+  const [shiftOrder,setShiftOrder]=useState(null)
     const {data:ordersProduct,isLoading,refetch}=useQuery('allorders',()=>fetch('http://localhost:4000/allorders',{
         method:"GET",
         headers:{
@@ -39,11 +41,13 @@ const ManageOrders = () => {
           <tbody>
            
              {ordersProduct?.map((orderItem, i) => (
-             <ManageOrdersRow setDeleteOrder={setDeleteOrder} refetch={refetch}  key={orderItem._id} orderItem={orderItem} i={i} />
+             <ManageOrdersRow setShiftOrder={setShiftOrder} setDeleteOrder={setDeleteOrder} refetch={refetch}  key={orderItem._id} orderItem={orderItem} i={i} />
             ))}
           </tbody>
         </table>
-       {deleteOrder &&  <ShiftModal deleteOrder={deleteOrder} refetch={refetch} setDeleteOrder={setDeleteOrder}  />}
+      
+       {shiftOrder && <ShiftModal shiftOrder={shiftOrder} refetch={refetch} setShiftOrder={setShiftOrder}  />}
+       {deleteOrder &&  <OrderDeleteModal deleteOrder={deleteOrder} refetch={refetch} setDeleteOrder={setDeleteOrder}  />}
             
         </div>
     );
