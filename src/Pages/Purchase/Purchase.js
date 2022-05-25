@@ -65,15 +65,15 @@ const Purchase = () => {
   return (
     <>
       <Navbar />
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero lg:min-h-screen bg-base-200">
      
-        <div className=" grid lg:grid-cols-2 ">
+        <div className=" lg:grid mx-4 lg:grid-cols-2 mt-10 lg:mt-0 ">
           <img
             src={tool.image}
-            className="flex-1 max-w-md rounded-lg shadow-2xl mx-auto"
+            className="flex-1 w-[40vh] lg:w-[80vh] lg:max-w-md mb-16 lg:mb-0 rounded-lg shadow-2xl mx-auto"
             alt=""
           />
-          <div className="px-5">
+          <div className="lg:px-5 mx-3 lg:mx-0">
          
             <h1 className="text-5xl font-bold">{tool.name}</h1>
             <p className="text-2xl">Id:{tool._id}</p>
@@ -85,7 +85,7 @@ const Purchase = () => {
         
             <p className="text-2xl font-bold text-green-800">${tool.price} <span className="text-sm text-black font-semibold">/per</span></p>
          
-            <div className="form-control w-full max-w-xs">
+            <div className="form-control lg:w-full lg:max-w-xs">
                 <div className="flex">
 
                 <input ref={inpurRef}  onChange={handleChange} placeholder={tool.minimum_quantity} type="text" className="input mr-3 input-bordered input-primary w-full max-w-xs" />
@@ -102,7 +102,7 @@ const Purchase = () => {
 
               
               </div>
-            <label onClick={()=>setIsOpen(true)} htmlFor="purchaseModal" className="btn btn-primary mt-5">Order Now</label>
+            <label onClick={()=>setIsOpen(true)} htmlFor="purchaseModal" className="btn btn-primary mb-10 lg:mb-0 mt-5">Order Now</label>
           
             
           </div>
