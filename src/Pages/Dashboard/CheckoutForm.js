@@ -13,6 +13,7 @@ const CheckoutForm = ({orderdProduc}) => {
     const [transectionId,setTransectionId]=useState('')
     const [paymentError,setPaymentError]=useState('')
     const [clientSecret,setClientScret]=useState('')
+    const [sending,setSending]=useState(false)
 
 
     useEffect(() => {
@@ -35,6 +36,7 @@ const CheckoutForm = ({orderdProduc}) => {
     }, [totalPrice])
     const handleSubmit=async(e)=>{
         e.preventDefault()
+        setSending(true)
   
         if(!stripe || !elements){
            return;
@@ -88,10 +90,19 @@ const CheckoutForm = ({orderdProduc}) => {
              })
               .then(res=>res.json())
               .then(data=>{
+                  setSending(false)
+                  e.target.reset()
                   toast.success("Payment data inserted successfully")
               }) 
           }
 
+    }
+    let sendingElement;
+    if(sending){
+      sendingElement= <div className="flex flex-col  justify-center items-center mt-2">
+        <p className="text-green-600 text-xs font-bold">Sending please wait...</p>
+        <progress class="progress w-36 bg-green-600"></progress>
+      </div>
     }
     return (
          <>
@@ -123,6 +134,7 @@ const CheckoutForm = ({orderdProduc}) => {
                 <button className='btn btn-success btn-sm mt-4 text-black font-bold text-xs'  type="submit" disabled={!stripe || !clientSecret} >
                     Confirm Payment
                 </button>
+                {sendingElement}
             </form>
            
                     </>

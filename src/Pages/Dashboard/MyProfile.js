@@ -1,10 +1,11 @@
-import React  from "react";
+import React, { useState }  from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 const MyProfile = () => {
   const [user] = useAuthState(auth);
+  const [sending,setSending]=useState(false)
 
   const {
     data: myInfo,
@@ -32,6 +33,7 @@ if(error){
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSending(true)
     const education = e.target.education.value;
     const city = e.target.city.value;
     const phone = e.target.phone.value;
@@ -59,12 +61,21 @@ if(error){
         console.log(data)
         if(data){
           toast.success("Update successfully")
+          setSending(false)
+          e.target.reset()
           refetch()
         }
      
       
       });
   };
+  let sendingElement;
+  if(sending){
+    sendingElement= <div className="flex flex-col  justify-center items-center mt-2">
+      <p className="text-green-600 text-xs font-bold">Sending...</p>
+      <progress class="progress w-36"></progress>
+    </div>
+  }
   return (
     <div>
       <h2 className="font-semibold text-center text-2xl text-primary">
@@ -226,8 +237,9 @@ if(error){
               type="submit"
               className="btn btn-primary lg:ml-auto mx-auto block mt-5 "
             >
-              Add Information
+              Update Information
             </button>
+            {sendingElement}
           </form>
         </div>
       </div>

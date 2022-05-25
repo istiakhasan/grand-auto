@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# GrandAuto
+## Live Website Link [GrandAuto](https://swiss-time.web.app/)
+Live Site Full Url Here: [https://swiss-time.web.app/](https://swiss-time.web.app/)
+## Description:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this site user can buy available bike parts . User can manage their booked product and  also modify or cancel order .
 
-## Available Scripts
+## Project features
 
-In the project directory, you can run:
+1.Dynamic Landing page with 8 section </br>
+2.Add Dynamic responsive menubar using daisyUi   </br>
+3.Private Routes  for order products </br>
+4.Show single items data from database </br>
+5.Email/password base authentication system with google sign in </br>
+6.Handle Error </br> 
+7.EmailVerification when user register  </br>
+8.JWT authertication </br>
+9.Mobile and Laptop Responsive site </br>
+10.Payment getway using stripe  </br>
+11.Dynamic dialog box for delete or make admin  operaion</br>
+12.Forget Password Functionality </br>
+13.Dynamic Dashboard for admin </br>
+14.Dynamic Dashboard for User </br>
 
-### `yarn start`
+## list of technologies Uses
+1.React  </br>
+2.React-router-dom </br>
+3.Tailwind </br>
+4.DaisyUi </br>
+5.Firebase </br>
+6.React-firebase-hook </br>
+7.Hero-icons </br>
+8.React-toastify </br>
+9.Mongodb database </br>
+10.React Query </br>
+11.Stripe  </br>
+12.Slick Slider </br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

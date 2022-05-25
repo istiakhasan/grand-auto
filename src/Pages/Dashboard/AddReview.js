@@ -5,12 +5,15 @@ import { toast } from "react-toastify";
 
 import auth from "../../firebase.init";
 
+
 const AddReview = () => {
   const [user] = useAuthState(auth);
   const [requiredImage, setRequiredImage] = useState("");
+  const [sending,setSending]=useState(false)
   const imageKey = "f7888621f8cab2adfc76adb7ffde620b";
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSending(true)
     const image = e.target.image.files[0];
     if (!image) {
       console.log("jacche");
@@ -50,6 +53,7 @@ const AddReview = () => {
         .then(data =>{
             if(data.insertedId){
                 toast.success('Review successfully')
+                setSending(false)
                 e.target.reset()
             }
             else{
@@ -59,6 +63,13 @@ const AddReview = () => {
         }
       });
   };
+  let sendingElement;
+  if(sending){
+    sendingElement= <div>
+      <p className="text-green-600 text-xs font-bold">Sending...</p>
+      <progress class="progress w-36"></progress>
+    </div>
+  }
 
   return (
     <div>
@@ -155,6 +166,7 @@ const AddReview = () => {
               </div>
             </div>
             <button className="btn-primary btn mt-5 w-6/12">submit</button>
+            {sendingElement}
           </div>
          </div>
           

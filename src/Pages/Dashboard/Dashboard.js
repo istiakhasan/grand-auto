@@ -3,10 +3,11 @@ import { Link, Outlet } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth'
 import auth from '../../firebase.init'
 import useAdmin from '../../hooks/useAdmin';
+import Loading from '../Shared/Loading'
 
 const Dashboard = () => {
   const [user]=useAuthState(auth);
-  const {admin} =useAdmin(user)
+  const {admin,loadingAdmin} =useAdmin(user)
     return (
         <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -20,6 +21,11 @@ const Dashboard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
           <ul className="menu p-4 overflow-y-auto w-80 bg-black text-white ">
             {
+              loadingAdmin ?<div className='flex justify-center items-center'>
+                <Loading />
+              </div>  :<>
+              
+              {
               !admin && <>
                <li><Link to="myorder">My Orders</Link></li>
                <li><Link to="myreview">Add A Review</Link></li>
@@ -34,6 +40,10 @@ const Dashboard = () => {
             </> 
             }
             <li><Link to="myprofile">My Profile</Link></li>
+              </>
+            }
+           
+          
           </ul>
         
         </div>
