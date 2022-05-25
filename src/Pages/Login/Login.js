@@ -18,7 +18,7 @@ const Login = () => {
   const [newUser, setNewUser] = useState(false);
   //resester user with eamil and password
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth,{emailVerificationOptions:true});
   //updating user
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   //sign In with eamil and password

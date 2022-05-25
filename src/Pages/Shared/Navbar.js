@@ -36,7 +36,7 @@ const Navbar = () => {
                 <Link to="/dashboard">Dashboard</Link>
               </li>
               <li>
-                <button className="btn normal-case" onClick={handleSignOut}>
+                <button className="btn text-white normal-case" onClick={handleSignOut}>
                   Log Out
                 </button>
               </li>
@@ -72,7 +72,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex="0"
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow  bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow   bg-base-100 rounded-box w-52"
           >
             {menuLinks}
           </ul>
