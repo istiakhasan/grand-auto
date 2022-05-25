@@ -20,6 +20,7 @@ import NotFound from './Pages/Shared/NotFound';
 import Blog from './Pages/Blog/Blog';
 import Portfolio from './Pages/Portfolio/Portfolio';
 import DashboardHome from './Pages/Dashboard/DashboardHome';
+import ManageOrders from './Pages/Dashboard/ManageOrders';
 
 
 
@@ -48,6 +49,7 @@ function App() {
            <Route  path='myprofile' element={<MyProfile />}></Route>  
            <Route  path='makeadmin' element={<AdminPrivateRoute><MakeAdmin /></AdminPrivateRoute>}></Route>  
            <Route  path='addproduct' element={<AdminPrivateRoute><AddProducts /></AdminPrivateRoute>}></Route>  
+           <Route  path='manageorders' element={<AdminPrivateRoute><ManageOrders /></AdminPrivateRoute>}></Route>  
            <Route  path='payment/:paymentId' element={<Payment />}></Route>  
           </Route>
            <Route path='*' element={<NotFound />} />

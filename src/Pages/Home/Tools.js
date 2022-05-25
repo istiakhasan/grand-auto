@@ -1,14 +1,18 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading';
 import Tool from './Tool';
 
 const Tools = () => {
 
-    const{data:tools,isLoading}=useQuery('tools',()=>fetch('http://localhost:4000/availabletools').then(res=>res.json()))
-
+    const{data:tools,isLoading}=useQuery('tools',()=>fetch('http://localhost:4000/tools').then(res=>res.json()))
+  
     if(isLoading){
-        return ;
-    }
+        return <div className="flex justify-center items-center h-20">
+          <Loading />
+        </div>
+      }
+    
    
     return (
         <div className='max-w-7xl mx-auto'>

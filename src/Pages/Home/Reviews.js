@@ -4,12 +4,15 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Review from "./Review";
 import { useQuery } from "react-query";
+import Loading from "../Shared/Loading";
 
 const Reviews = () => {
   const {data:reviewData,isLoading}=useQuery('allreview',()=>fetch('http://localhost:4000/review').then(res=>res.json()))
   
  if(isLoading){
-   return ;
+   return <div className="flex justify-center items-center h-20">
+     <Loading />
+   </div>
  }
   return (
     <div>

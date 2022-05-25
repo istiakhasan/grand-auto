@@ -153,13 +153,13 @@ if(error){
       </div>
 
       <div className="my-28">
-        <h2 className="text-primary text-xl font-semibold">
+        <h2 className="text-primary text-xl lg:text-center font-semibold">
           Add/Update Information
         </h2>
-        <div className="lg:w-10/12 ">
-          <form className="" onSubmit={handleSubmit} >
-            <div className="lg:flex p-5 lg:p-0 shadow-2xl rounded-md py-8 lg:px-6">
-              <div className="lg:mr-10 lg:w-6/12">
+        <div className="lg:w-10/12 mx-auto">
+          <form className="shadow-2xl py-20 rounded-3xl" onSubmit={handleSubmit} >
+            <div className="lg:flex p-5 lg:p-0  rounded-md py-8 lg:px-6">
+              <div className="lg:mr-10 lg:w-6/12 ">
                 <div className="form-control w-full ">
                   <label className="label">
                     <span className="label-text">Education</span>
@@ -197,7 +197,7 @@ if(error){
                   />
                 </div>
               </div>
-              <div className="lg:w-6/12">
+              <div className="lg:w-6/12  ">
                 <div className="form-control w-full ">
                   <label className="label">
                     <span className="label-text">LinkedIn Link</span>

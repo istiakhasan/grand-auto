@@ -2,3 +2,7 @@
 .slick-next{
   display: none !important;
 }
+.tools-card{
+  gap: 0 !important;
+  
+}

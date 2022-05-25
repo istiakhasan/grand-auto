@@ -21,14 +21,14 @@ const Dashboard = () => {
           <ul className="menu p-4 overflow-y-auto w-80 bg-black text-white ">
             {
               !admin && <>
-               <li><Link to="/myorder">My Orders</Link></li>
+               <li><Link to="myorder">My Orders</Link></li>
                <li><Link to="myreview">Add A Review</Link></li>
                </>
             }
            {admin && <>
             <li><Link to="makeadmin">Make Admin</Link></li>
             <li><Link to="addproduct">Add Product</Link></li>
-            <li><Link to="makeadmin">Manage Orders</Link></li>
+            <li><Link to="manageorders">Manage Orders</Link></li>
             <li><Link to="makeadmin">Manage Products</Link></li>
           
             </> 

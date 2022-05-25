@@ -4,6 +4,7 @@ import {useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useSig
 import auth from '../../firebase.init'
 import { useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../hooks/useToken';
+import Loading from '../Shared/Loading';
 
 const Login = () => {
   const [newUser,setNewUser]=useState(false)
@@ -25,8 +26,8 @@ const Login = () => {
   ] = useSignInWithEmailAndPassword(auth);
   //genarate token 
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-  const [token]=useToken(user || googleUser)
-  console.log(token,"token")
+  const [token]=useToken(user || googleUser || signInuser)
+ 
   //sign in with google 
   const navigate=useNavigate()
   const location=useLocation()
@@ -40,13 +41,13 @@ const Login = () => {
         reset
       } = useForm();
 
-      if(user || signInuser || googleUser){
+      if(token){
         console.log(user || signInuser || googleUser)
         navigate(from,{replace:true})
        
       }
       const onSubmit = async(data) => {
-          const {name,email,password}=data
+          const {name,email,password}=data        
          if(!newUser){
              signInWithEmailAndPassword(email,password)
             reset()
@@ -57,6 +58,17 @@ const Login = () => {
              reset()
          }
       }
+      if(loading || googleLoading || updating || signInloading ){
+        return <div className='h-screen flex justify-center items-center'>
+          <Loading />
+          </div>
+      }
+      let errorElement
+      if(error || googleError || signInerror || updateError ){
+         errorElement= <p className='text-center font-semibold text-red-500 text-sm'>Error:{error?.message}{googleError?.message}{signInerror?.message}{updateError?.message}</p>
+      }
+     
+     
     return (
         <>
        
@@ -155,6 +167,7 @@ const Login = () => {
               </div>
               <p className='text-center font-semibold'><small>{!newUser?"Don't have a account?":"Already have a account?"} </small><span onClick={()=>setNewUser(!newUser)} className='text-primary font-semibold cursor-pointer'>{!newUser?"Register":"Login"}</span></p>
             </form>
+            {errorElement}
             <button onClick={()=>signInWithGoogle()} className="btn btn-outline btn-primary mx-8 mb-10">Google Sign In</button>
           </div>
           <div className="text-center lg:w-6/12 lg:text-left text-white">

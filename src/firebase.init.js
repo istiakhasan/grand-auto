@@ -3,12 +3,12 @@ import { initializeApp } from "firebase/app";
 import {getAuth} from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC56jjJXYxCSqSww9j9RX-eR5P8M1a0HSg",
-  authDomain: "grandauto-da398.firebaseapp.com",
-  projectId: "grandauto-da398",
-  storageBucket: "grandauto-da398.appspot.com",
-  messagingSenderId: "613211283893",
-  appId: "1:613211283893:web:26838c42708e599eac79fc"
+  apiKey: process.env.REACT_APP_api_Key,
+  authDomain: process.env.REACT_APP_auth_Domain,
+  projectId: process.env.REACT_APP_project_Id,
+  storageBucket: process.env.REACT_APP_storage_Bucket,
+  messagingSenderId: process.env.REACT_APP_messaging_Sender_Id,
+  appId: process.env.REACT_APP_app_Id
 };
 
 

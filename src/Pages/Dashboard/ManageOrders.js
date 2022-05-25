@@ -1,0 +1,52 @@
+import React, { useState } from 'react';
+import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading';
+import ManageOrdersRow from './ManageOrdersRow';
+import ShiftModal from './ShiftModal';
+
+const ManageOrders = () => {
+  const [deleteOrder,setDeleteOrder]=useState(null)
+    const {data:ordersProduct,isLoading,refetch}=useQuery('allorders',()=>fetch('http://localhost:4000/allorders',{
+        method:"GET",
+        headers:{
+            'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res=>res.json()))
+    if(isLoading){
+        return <div className="flex justify-center items-center h-20">
+          <Loading />
+        </div>
+      }
+   
+    return (
+        <div>
+            <h2 className='text-center text-3xl text-primary  font-semibold'>Manage Orders</h2>
+            <table className="table table-zebra w-full">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Name</th>
+              <th>email</th>
+              <th>Product Name</th>
+              <th>Total Price</th>
+              <th>Quantity</th>
+              <th>Payment Status</th>
+              <th> Status</th>
+              <th>Action</th>
+          
+            </tr>
+          </thead>
+          <tbody>
+           
+             {ordersProduct?.map((orderItem, i) => (
+             <ManageOrdersRow setDeleteOrder={setDeleteOrder} refetch={refetch}  key={orderItem._id} orderItem={orderItem} i={i} />
+            ))}
+          </tbody>
+        </table>
+       {deleteOrder &&  <ShiftModal deleteOrder={deleteOrder} refetch={refetch} setDeleteOrder={setDeleteOrder}  />}
+            
+        </div>
+    );
+};
+
+export default ManageOrders;
