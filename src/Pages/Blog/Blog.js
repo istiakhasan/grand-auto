@@ -5,7 +5,7 @@ const Blog = () => {
         <div>
             <div className='text-lg lg:w-6/12 mx-5   shadow-lg lg:mx-auto my-12 p-10'>
                 <p className='rounded-xl text-xl font-bold'>How will you improve the performance of a React Application?</p>
-                <p><strong>Ans:</strong>
+                <div><strong>Ans:</strong>
                  <p>1.Using Immutable Data Structures</p>
                  <p>2.Stateless component </p>
                  <p>3.Dependency optimization</p>
@@ -15,7 +15,7 @@ const Blog = () => {
                  <p>7.Memoize React Components</p>
                  <p>8.Consider server side rendering </p>
                  by using these   I can improve the performance of a react applicaion.
-                </p>
+                </div>
             </div>
             <div className='rounded-xl text-lg lg:w-6/12  shadow-lg mx-5 lg:mx-auto my-12 p-10'>
                 <p className='text-xl font-bold'>What are the different ways to manage a state in a React application?</p>
@@ -28,13 +28,13 @@ const Blog = () => {
             </div>
             <div className='rounded-xl text-lg lg:w-6/12  shadow-lg mx-5 lg:mx-auto my-12 p-10'>
                 <p className='text-xl font-bold'> What is a unit test? Why should write unit tests?</p>
-                <p><strong>Ans:</strong>
+                <div><strong>Ans:</strong>
                 <p><strong>What is a unit test:-</strong></p>
                 Unit testing is a type of testing in which individual units or functions of software testing. Its primary purpose is to test each unit or function. A unit is the smallest testable part of an application. It mainly has one or a few inputs and produces a single output. In procedural programming, a unit referred to as an individual program, while object-oriented programming languages include Base/Superclass, abstract class, Derived/Child class takes place.
                 <p><strong>Reasone to write unit tests:-</strong></p>
                 unit tests act as documentation for our code. Any developer can quickly look at our tests and know the purpose of our functions.Unit testing improves code coverage. A debatable topic is to have 100% code coverage across our application.Unit tests make code reuse easier it also save time and money.
                  
-                </p>
+                </div>
             </div>
             <div className='rounded-xl text-lg lg:w-6/12  shadow-lg mx-5 lg:mx-auto my-12 p-10'>
                 <p className='text-xl font-bold'> What is a unit test? Why should write unit tests?</p>

@@ -17,7 +17,7 @@ const useAdmin=(user)=>{
         }
      
     },[user])
-    console.log("check",admin)
+    
     return {admin,loadingAdmin}
 
 }

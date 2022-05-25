@@ -72,12 +72,13 @@ if(error){
       <h2 className="font-semibold text-center text-2xl text-primary">
         My Profile Details
       </h2>
-      <div className="grid grid-cols-3 mt-12">
-        <div className="text-center">
+      <div className="lg:grid lg:grid-cols-3  mt-12">
+        <div className="text-center  ">
           <div className="avatar">
-            <div className="w-40 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <div className="lg:w-40 w-20    rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img
                 alt=""
+               className=""
                 src={
                   user?.phoneNumber ||
                   "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
@@ -88,11 +89,11 @@ if(error){
 
           <p className="mt-5 font-semibold text-xl">{user.displayName}</p>
         </div>
-        <div className="col-span-2">
+        <div className="col-span-2 mt-10 lg:mt-0">
           <div className="w-[90%]">
           <p className="text-2xl font-semibold">Information </p>
           <div className="divider"></div>
-          <div className="grid grid-cols-2">
+          <div className="grid lg:grid-cols-2">
             <div>
               <p>Email</p>
               <p>{user.email}</p>
@@ -125,7 +126,7 @@ if(error){
           <div className="mt-10">
             <p className="text-2xl font-semibold">Social Link</p>
             <div className="divider"></div>
-            <div className="grid grid-cols-2">
+            <div className="grid lg:grid-cols-2 gap-5">
               <div>
                 <p>Facebook</p>
                 <a
@@ -155,10 +156,10 @@ if(error){
         <h2 className="text-primary text-xl font-semibold">
           Add/Update Information
         </h2>
-        <div className="w-10/12">
-          <form className="" onSubmit={handleSubmit} action="">
-            <div className="flex shadow-2xl rounded-md py-8 px-6">
-              <div className="mr-10 w-6/12">
+        <div className="lg:w-10/12 ">
+          <form className="" onSubmit={handleSubmit} >
+            <div className="lg:flex p-5 lg:p-0 shadow-2xl rounded-md py-8 lg:px-6">
+              <div className="lg:mr-10 lg:w-6/12">
                 <div className="form-control w-full ">
                   <label className="label">
                     <span className="label-text">Education</span>
@@ -196,7 +197,7 @@ if(error){
                   />
                 </div>
               </div>
-              <div className="w-6/12">
+              <div className="lg:w-6/12">
                 <div className="form-control w-full ">
                   <label className="label">
                     <span className="label-text">LinkedIn Link</span>
@@ -225,7 +226,7 @@ if(error){
             </div>
             <button
               type="submit"
-              className="btn btn-primary ml-auto block mt-5 "
+              className="btn btn-primary lg:ml-auto mx-auto block mt-5 "
             >
               Add Information
             </button>

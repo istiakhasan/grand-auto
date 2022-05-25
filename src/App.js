@@ -19,6 +19,7 @@ import AddProducts from './Pages/Dashboard/AddProducts';
 import NotFound from './Pages/Shared/NotFound';
 import Blog from './Pages/Blog/Blog';
 import Portfolio from './Pages/Portfolio/Portfolio';
+import DashboardHome from './Pages/Dashboard/DashboardHome';
 
 
 
@@ -41,7 +42,8 @@ function App() {
          <PrivateRoute>
          <Dashboard /> 
         </PrivateRoute>}>
-           <Route index  element={<MyOrder />}></Route>  
+           <Route  path='myorder'  element={<MyOrder />}></Route>  
+           <Route  index  element={<DashboardHome />}></Route>  
            <Route  path='myreview' element={<AddReview />}></Route>  
            <Route  path='myprofile' element={<MyProfile />}></Route>  
            <Route  path='makeadmin' element={<AdminPrivateRoute><MakeAdmin /></AdminPrivateRoute>}></Route>  

@@ -2,17 +2,17 @@ import React from 'react';
 
 const ProjectCard = ({img,site}) => {
     return (
-        <div class="card  glass">
+        <div className="card  glass">
         <figure>
           <img
             src={img}
             alt="car!"
           />
         </figure>
-        <div class="card-body">
+        <div className="card-body">
          
-          <div class="card-actions justify-end">
-            <a target="_blank"  href={site} class="btn btn-primary font-normal">Live site Link</a>
+          <div className="card-actions justify-end">
+            <a target="_blank"  href={site} className="btn btn-primary font-normal">Live site Link</a>
           </div>
         </div>
       </div>

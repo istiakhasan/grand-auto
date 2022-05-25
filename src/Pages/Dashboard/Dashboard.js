@@ -10,7 +10,8 @@ const Dashboard = () => {
     return (
         <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content lg:pl-10 mx-5 lg:mx-0 pt-10">     
+        <div className="drawer-content lg:pl-10 mx-5 lg:mx-0 pt-10">   
+     
          <Outlet />
           
         
@@ -20,7 +21,7 @@ const Dashboard = () => {
           <ul className="menu p-4 overflow-y-auto w-80 bg-black text-white ">
             {
               !admin && <>
-               <li><Link to="/dashboard">My Orders</Link></li>
+               <li><Link to="/myorder">My Orders</Link></li>
                <li><Link to="myreview">Add A Review</Link></li>
                </>
             }

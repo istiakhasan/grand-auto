@@ -14,7 +14,7 @@ const Portfolio = () => {
       <div className="lg:grid grid-cols-2 my-20 mx-10">
       <div>
          <h2 className="text-primary text-3xl underline mb-10 ">My Education</h2>
-      <ol class="relative border-l border-gray-200 dark:border-gray-700 ">
+      <ol className="relative border-l border-gray-200 dark:border-gray-700 ">
         <Timeline
           exam="BSC"
           year="2016-2020"
