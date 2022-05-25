@@ -29,7 +29,7 @@ const Dashboard = () => {
             <li><Link to="makeadmin">Make Admin</Link></li>
             <li><Link to="addproduct">Add Product</Link></li>
             <li><Link to="manageorders">Manage Orders</Link></li>
-            <li><Link to="makeadmin">Manage Products</Link></li>
+            <li><Link to="manageproducts">Manage Products</Link></li>
           
             </> 
             }

@@ -3,7 +3,10 @@ import React from 'react';
 const AdminRow = ({item,i,refetch}) => {
     const handleMakeAdmin=()=>{
         fetch(`http://localhost:4000/makeadmin/${item.email}`,{
-            method:'PUT'
+            method:'PUT',
+            headers:{
+                'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+            }
         })
         .then(res=>res.json())
         .then(data=>{

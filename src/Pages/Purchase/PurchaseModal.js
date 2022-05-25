@@ -29,7 +29,8 @@ const PurchaseModal = ({tool,newOrderQuantity,setIsOpen,refetch}) => {
     fetch('http://localhost:4000/order',{
       method:"POST",
       headers:{
-        'content-type':'application/json'
+        'content-type':'application/json',
+        'authorization':`Bearer ${localStorage.getItem('accessToken')}`
       },
       body:JSON.stringify(order)
     })

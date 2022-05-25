@@ -12,7 +12,11 @@ const MyProfile = () => {
      error,
     refetch,
   } = useQuery(`profile-information${user.email}`, () =>
-    fetch(`http://localhost:4000/profile-details/?email=${user.email}`).then(
+    fetch(`http://localhost:4000/profile-details/?email=${user.email}`,{
+      headers:{
+        'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+      }
+    }).then(
       res => res.json()
     )
   );
@@ -46,24 +50,18 @@ if(error){
       method: "PUT",
       headers: {
         "content-type": "application/json",
+        'authorization':`Bearer ${localStorage.getItem('accessToken')}`
       },
       body: JSON.stringify(info),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.matchedCount) {
-          toast.error(
-            "Information matched,your should update your all information "
-          );
-          return;
+        console.log(data)
+        if(data){
+          toast.success("Update successfully")
+          refetch()
         }
-        if (data.upsertedCount || data.modifiedCount) {
-          toast.success("Update profile  successfully");
-          e.target.reset();
-          refetch();
-        } else {
-          toast.error("Failed to update");
-        }
+     
       
       });
   };

@@ -32,10 +32,10 @@ const AddProducts = () => {
         .then((result) => {
           if (result.success) {
             const image = result.data.url;
-            const   name= e.target.name.value
+            const  name= e.target.name.value
            const  description= e.target.description.value
-           const  available_quantity=e.target.available_quantity.value
-           const  minimum_quantity=e.target.minimum_quantity.value
+           const  available_quantity=parseInt(e.target.available_quantity.value)
+           const  minimum_quantity=parseInt(e.target.minimum_quantity.value)
            const  price=e.target.price.value
            if(minimum_quantity>available_quantity){
                    setQuantityError("Available quantity should be bigger then minimum quantity")
@@ -54,7 +54,8 @@ const AddProducts = () => {
             fetch('http://localhost:4000/addproduct', {
               method: 'POST',
               headers: {
-                  'content-type': 'application/json'
+                  'content-type': 'application/json',
+                  'authorization':`Bearer ${localStorage.getItem('accessToken')}`
                  
               },
               body: JSON.stringify(product)

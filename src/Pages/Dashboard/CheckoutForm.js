@@ -20,6 +20,7 @@ const CheckoutForm = ({orderdProduc}) => {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
+                'authorization':`Bearer ${localStorage.getItem('accessToken')}`
                
             },
             body: JSON.stringify({ totalPrice })
@@ -80,7 +81,8 @@ const CheckoutForm = ({orderdProduc}) => {
              fetch(`http://localhost:4000/order/${_id}`,{
                  method:"PATCH",
                  headers:{
-                     'content-type':'application/json'
+                     'content-type':'application/json',
+                     'authorization':`Bearer ${localStorage.getItem('accessToken')}`
                  },
                  body:JSON.stringify(paymentData)
              })

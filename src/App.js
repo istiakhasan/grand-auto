@@ -6,7 +6,7 @@ import PrivateRoute from './Pages/Login/PrivateRoute';
 import Purchase from './Pages/Purchase/Purchase';
 import Footer from './Pages/Shared/Footer';
 import Navbar from './Pages/Shared/Navbar';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrder from './Pages/Dashboard/MyOrder';
@@ -21,6 +21,7 @@ import Blog from './Pages/Blog/Blog';
 import Portfolio from './Pages/Portfolio/Portfolio';
 import DashboardHome from './Pages/Dashboard/DashboardHome';
 import ManageOrders from './Pages/Dashboard/ManageOrders';
+import ManageProducts from './Pages/Dashboard/ManageProducts';
 
 
 
@@ -50,6 +51,7 @@ function App() {
            <Route  path='makeadmin' element={<AdminPrivateRoute><MakeAdmin /></AdminPrivateRoute>}></Route>  
            <Route  path='addproduct' element={<AdminPrivateRoute><AddProducts /></AdminPrivateRoute>}></Route>  
            <Route  path='manageorders' element={<AdminPrivateRoute><ManageOrders /></AdminPrivateRoute>}></Route>  
+           <Route  path='manageproducts' element={<AdminPrivateRoute><ManageProducts /></AdminPrivateRoute>}></Route>  
            <Route  path='payment/:paymentId' element={<Payment />}></Route>  
           </Route>
            <Route path='*' element={<NotFound />} />

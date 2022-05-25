@@ -3,7 +3,11 @@ import { useQuery } from 'react-query';
 import AdminRow from './AdminRow';
 
 const MakeAdmin = () => {
-    const {data:userData,isLoading,refetch}=useQuery('allusersData',()=>fetch('http://localhost:4000/user').then(res=>res.json()))
+    const {data:userData,isLoading,refetch}=useQuery('allusersData',()=>fetch('http://localhost:4000/user',{
+      headers:{
+        'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+      }
+    }).then(res=>res.json()))
     if(isLoading){
         return ;
     }

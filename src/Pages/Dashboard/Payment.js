@@ -13,6 +13,9 @@ const Payment = () => {
 
     const { data: orderdProduc, isLoading } = useQuery(['order', paymentId], () => fetch(url, {
         method: 'GET',
+        headers:{
+            'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+        }
       
     }).then(res => res.json()));
 
