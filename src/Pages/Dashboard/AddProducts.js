@@ -1,17 +1,17 @@
 import { CloudUploadIcon } from '@heroicons/react/solid';
 import React, { useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
-import auth from '../../firebase.init';
+
 
 const AddProducts = () => {
-    const [user] = useAuthState(auth);
+    const [sending,setSending]=useState(false)
     const [requiredImage, setRequiredImage] = useState("");
     const [inputError, setIputError] = useState("");
     const [quantiyError,setQuantityError]=useState('')
     const imageKey = "f7888621f8cab2adfc76adb7ffde620b";
     const handleSubmit = (e) => {
       e.preventDefault();
+      setSending(true)
       setQuantityError("")
       setIputError("")
       const image = e.target.image.files[0];
@@ -38,10 +38,12 @@ const AddProducts = () => {
            const  minimum_quantity=parseInt(e.target.minimum_quantity.value)
            const  price=e.target.price.value
            if(minimum_quantity>available_quantity){
+                   setSending(false)
                    setQuantityError("Available quantity should be bigger then minimum quantity")
                    return;
            }
            if(minimum_quantity<0 || available_quantity<0 || price<0){
+             setSending(false)
              setIputError("Please enter a posetive number")
              return ;
            }
@@ -63,6 +65,7 @@ const AddProducts = () => {
           .then(res =>res.json())
           .then(data =>{
               if(data.insertedId){
+                  setSending(false)
                   toast.success('Add Product SuccessFully')
                   e.target.reset()
               }
@@ -73,6 +76,15 @@ const AddProducts = () => {
           }
         });
     };
+
+
+    let sendingElement;
+    if(sending){
+      sendingElement= <div>
+        <p className="text-green-600 text-xs font-bold">Sending...</p>
+        <progress class="progress w-36"></progress>
+      </div>
+    }
     return (
         <div className='mx-5  mb-20'>
             <h2 className='text-center text-2xl text-primary'>Add A products</h2>
@@ -165,6 +177,7 @@ const AddProducts = () => {
          <p className='text-red-500 font-bold '>{quantiyError}</p>
          <p className='text-red-500 font-bold '>{inputError}</p>
             <button className="btn-primary btn mt-5 px-20">submit</button>
+            {sendingElement}
           
         </form>
             

@@ -4,10 +4,11 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useLocation } from "react-router-dom";
 import auth from "../../firebase.init";
+import Loading from "./Loading";
 
 const Navbar = () => {
    const {pathname}=useLocation()
-  const [user] = useAuthState(auth);
+  const [user,loading] = useAuthState(auth);
   const handleSignOut = () => {
     signOut(auth);
   };
@@ -22,24 +23,32 @@ const Navbar = () => {
       <li>
         <Link to="/Portfolio">Portfolio</Link>
       </li>
-      {user && (
-        <li>
-          <Link to="dashboard">Dashboard</Link>
-        </li>
-      )}
-      {user && (
-        <li>
-          <button className="btn normal-case" onClick={handleSignOut}>
-            Log Out
-          </button>
-        </li>
-      )}
-      {!user && (
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-      )}
+     
+      {
+        loading? <li><Loading /> </li> : <>
+          {user ? 
+            <> 
+            <li>
+              <Link to="dashboard">Dashboard</Link>
+            </li>
+            <li>
+              <button className="btn normal-case" onClick={handleSignOut}>
+                Log Out
+              </button>
+            </li>
+            </>
+          
+         :
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+    }
     </>
+        
+      }
+    </>
+
+   
   );
   return (
     <div className="navbar sticky bg-primary top-0 z-50 ">

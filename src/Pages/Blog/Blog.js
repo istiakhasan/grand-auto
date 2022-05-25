@@ -1,8 +1,10 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Blog = () => {
     return (
         <div>
+             <Helmet><title>Blog</title></Helmet>
             <div className='text-lg lg:w-6/12 mx-5   shadow-lg lg:mx-auto my-12 p-10'>
                 <p className='rounded-xl text-xl font-bold'>How will you improve the performance of a React Application?</p>
                 <div><strong>Ans:</strong>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import MySkill from "./MySkill";
 import Projects from "./Projects";
 import Timeline from "./Timeline";
@@ -6,6 +7,7 @@ import Timeline from "./Timeline";
 const Portfolio = () => {
   return (
     <div className="  my-20 max-w-7xl mx-auto">
+       <Helmet><title>Portfolio</title></Helmet>
         <div className="mx-10">
             <h2 className="text-primary text-3xl  underline ">Name and Email Address</h2>
             <h1 className="font-semibold">Md .Istiak Hasan</h1>

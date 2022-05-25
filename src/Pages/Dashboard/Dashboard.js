@@ -4,12 +4,14 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import auth from '../../firebase.init'
 import useAdmin from '../../hooks/useAdmin';
 import Loading from '../Shared/Loading'
+import { Helmet } from 'react-helmet-async';
 
 const Dashboard = () => {
   const [user]=useAuthState(auth);
   const {admin,loadingAdmin} =useAdmin(user)
     return (
         <div className="drawer drawer-mobile">
+           <Helmet><title>Dashboard</title></Helmet>
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content lg:pl-10 mx-5 lg:mx-0 pt-10">   
      

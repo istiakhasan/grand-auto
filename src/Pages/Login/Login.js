@@ -5,6 +5,7 @@ import auth from '../../firebase.init'
 import { useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
   const [newUser,setNewUser]=useState(false)
@@ -71,7 +72,7 @@ const Login = () => {
      
     return (
         <>
-       
+        <Helmet><title>Login/signup</title></Helmet>
         <div className="hero min-h-screen bg-black ">
         <div className="hero-content flex-col-reverse   lg:flex-row-reverse">
           
