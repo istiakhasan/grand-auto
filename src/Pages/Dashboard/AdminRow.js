@@ -1,29 +1,20 @@
 import React from 'react';
 
-const AdminRow = ({item,i,refetch}) => {
-    const handleMakeAdmin=()=>{
-        fetch(`http://localhost:4000/makeadmin/${item.email}`,{
-            method:'PUT',
-            headers:{
-                'authorization':`Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            refetch()
-        })
-    }
+const AdminRow = ({item,i,setMakeAdminData,setDeleteUserData}) => {
+   
+ 
     return (
         <tr>
         <th>{i + 1}</th>
         <td>{item.email}</td>
-         <td>{item.role !=='admin'?<button onClick={handleMakeAdmin} className='btn btn-primary btn-sm'>Make Admin</button>
+        
+        
+         <td>{item.role !=='admin'?<label onClick={()=>setMakeAdminData(item)} className='btn btn-primary btn-sm' for="makeadminmodal">Make Admin</label>
          
         :
         <span className='text-green-500 font-bold t'>Admin</span>
         }</td>
-        <td><button className='btn btn-primary btn-sm bg-red-500 border-0'>Remove User</button></td>
+        <td><label onClick={()=>setDeleteUserData(item)} htmlFor="userDeleteModal" className='btn btn-primary btn-sm bg-red-500 border-0'>Remove User</label></td>
     
      
       </tr>
@@ -31,3 +22,4 @@ const AdminRow = ({item,i,refetch}) => {
 };
 
 export default AdminRow;
+{/* <button onClick={handleMakeAdmin} >Make Admin</button> */}

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import AdminRow from './AdminRow';
+import MakeAdminModal from './MakeAdminModal';
+import UserDeleteModal from './UserDeleteModal';
 
 const MakeAdmin = () => {
+  const [makeadminData,setMakeAdminData]=useState(null)
+  const [deleteUserData,setDeleteUserData]=useState(null)
     const {data:userData,isLoading,refetch}=useQuery('allusersData',()=>fetch('http://localhost:4000/user',{
       headers:{
         'authorization':`Bearer ${localStorage.getItem('accessToken')}`
@@ -20,7 +24,9 @@ const MakeAdmin = () => {
             <tr>
               <th></th>
               <th>Email</th>
+             
               <th>Make Admin</th>
+             
               <th>Action</th>
           
             </tr>
@@ -28,11 +34,12 @@ const MakeAdmin = () => {
           <tbody>
            
             {userData?.map((item, i) => (
-             <AdminRow refetch={refetch}  key={item._id} item={item} i={i} />
+             <AdminRow setDeleteUserData={setDeleteUserData} setMakeAdminData={setMakeAdminData} refetch={refetch}  key={item._id} item={item} i={i} />
             ))}
           </tbody>
         </table>
-       {/* {deleteOrder && <CancelModal deleteOrder={deleteOrder} refetch={refetch} setDeleteOrder={setDeleteOrder}  />} */}
+       {makeadminData && <MakeAdminModal makeadminData={makeadminData} refetch={refetch} setMakeAdminData={setMakeAdminData}  />} 
+       {deleteUserData && <UserDeleteModal deleteUserData={deleteUserData} refetch={refetch} setDeleteUserData={setDeleteUserData}  />} 
       </div>
             
         </div>
