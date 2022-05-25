@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 import Product from './Product';
+import ProductDeleteModal from './ProductDeleteModal';
 
 const ManageProducts = () => {
-    const {data:products,isLoading}=useQuery('allproducts',()=>fetch('http://localhost:4000/tools').then(res=>res.json()))
+    const [deleteProduct,setDeleteProduct]=useState(null)
+    const {data:products,isLoading,refetch}=useQuery('allproducts',()=>fetch('http://localhost:4000/tools').then(res=>res.json()))
     console.log(products)
     if(isLoading){
         return <div className='h-screen flex justify-center items-center'>
@@ -15,8 +17,8 @@ const ManageProducts = () => {
     return (
         <div>
             <h2 className='text-3xl text-center font-bold text-primary mb-10 '>Manage Products</h2>
-            <div className="overflow-x-auto">
-        <table className="table table-zebra w-full">
+            <div className="overflow-x-auto ">
+        <table className="table table-zebra w-full px-10">
           <thead>
             <tr>
               <th></th>
@@ -31,11 +33,11 @@ const ManageProducts = () => {
           <tbody>
            
              {products?.map((product, i) => (
-             <Product  key={product._id} product={product} i={i} />
+             <Product setDeleteProduct={setDeleteProduct}  key={product._id} product={product} i={i} />
             ))} 
           </tbody>
         </table>
-       {/* {deleteOrder && <CancelModal deleteOrder={deleteOrder} refetch={refetch} setDeleteOrder={setDeleteOrder}  />} */}
+        {deleteProduct && <ProductDeleteModal deleteProduct={deleteProduct} refetch={refetch} setDeleteProduct={setDeleteProduct}  />} 
       </div>
             
         </div>
