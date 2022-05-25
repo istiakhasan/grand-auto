@@ -10,9 +10,9 @@ const Dashboard = () => {
     return (
         <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content pl-10 pt-10">     
+        <div className="drawer-content lg:pl-10 mx-5 lg:mx-0 pt-10">     
          <Outlet />
-          <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+          
         
         </div> 
         <div className="drawer-side">

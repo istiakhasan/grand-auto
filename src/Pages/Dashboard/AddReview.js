@@ -66,9 +66,9 @@ const AddReview = () => {
       </h2>
 
       <div>
-        <form   onSubmit={handleSubmit} action="">
-         <div className="flex">
-         <div className="mr-10 w-4/12">
+        <form   onSubmit={handleSubmit}>
+         <div className="lg:flex">
+         <div className="lg:mr-10 lg:w-4/12">
             <div className="form-control w-full ">
               <label className="label">
                 <span className="label-text">Whats your company name?</span>
@@ -94,7 +94,7 @@ const AddReview = () => {
               ></textarea>
             </div>
           </div>
-          <div className="w-96">
+          <div className="lg:w-96">
             <div className="form-control w-full max-w-xs">
               <label className="label text-xs">Upload your image</label>
               <label

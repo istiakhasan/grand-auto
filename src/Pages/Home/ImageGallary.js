@@ -24,22 +24,22 @@ const ImageGallary = () => {
             <h2 className='text-3xl text-primary text-center font-bold my-20'>Photo Gallary</h2>
         <Slider   {...settings}>
             <div className=' h-100 '>
-                <img className='w-[90%] mx-auto border rounded-lg h-[50vh] object-cover'  src={slideimg1} alt="" />
+                <img className='w-[90%] mx-auto border rounded-lg h-[20vh] lg:h-[50vh] object-cover'  src={slideimg1} alt="" />
             </div>
             <div className=''>
-                <img className='w-[90%] mx-auto border rounded-lg h-[50vh] object-cover' src={slideimg2} alt="" />
+                <img className='w-[90%] mx-auto border rounded-lg h-[20vh] lg:h-[50vh] object-cover' src={slideimg2} alt="" />
             </div>
             <div className=''>
-                <img className='w-[90%] mx-auto border rounded-lg h-[50vh] object-cover' src={slideimg3} alt="" />
+                <img className='w-[90%] mx-auto border rounded-lg h-[20vh] lg:h-[50vh] object-cover' src={slideimg3} alt="" />
             </div>
             <div className='h-max '>
-                <img className='w-[90%] mx-auto border rounded-lg h-[50vh] object-cover' src={slideimg4} alt="" />
+                <img className='w-[90%] mx-auto border rounded-lg h-[20vh] lg:h-[50vh] object-cover' src={slideimg4} alt="" />
             </div>
             <div className=' h-auto '>
-                <img className='w-[90%] mx-auto border rounded-lg h-[50vh] object-cover' src={slideimg5} alt="" />
+                <img className='w-[90%] mx-auto border rounded-lg h-[20vh] lg:h-[50vh] object-cover' src={slideimg5} alt="" />
             </div>
             <div className=''>
-                <img className='w-[90%] mx-auto border rounded-lg h-[50vh] object-cover' src={slideimg6} alt="" />
+                <img className='w-[90%] mx-auto border rounded-lg h-[20vh] lg:h-[50vh] object-cover' src={slideimg6} alt="" />
             </div>
         
        

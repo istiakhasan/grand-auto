@@ -17,7 +17,7 @@ const Reviews = () => {
         Customer Reviews
       </h2>
 
-      <div className="grid lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+      <div className="grid mx-5 lg:mx-auto lg:grid-cols-3 gap-10 max-w-7xl ">
           {
               reviewData.map(review=><Review key={review._id} review={review} />)
           }

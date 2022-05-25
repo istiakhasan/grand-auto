@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProjectCard = ({img,site}) => {
     return (
-        <div class="card w-96 glass">
+        <div class="card  glass">
         <figure>
           <img
             src={img}

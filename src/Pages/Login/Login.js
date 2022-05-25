@@ -60,7 +60,7 @@ const Login = () => {
     return (
         <>
        
-        <div className="hero min-h-screen bg-black">
+        <div className="hero min-h-screen bg-black ">
         <div className="hero-content flex-col-reverse   lg:flex-row-reverse">
           
          
@@ -157,9 +157,9 @@ const Login = () => {
             </form>
             <button onClick={()=>signInWithGoogle()} className="btn btn-outline btn-primary mx-8 mb-10">Google Sign In</button>
           </div>
-          <div className="text-center w-6/12 lg:text-left text-white">
+          <div className="text-center lg:w-6/12 lg:text-left text-white">
             <h1 className="text-5xl font-bold">{!newUser?"Login now!":"Sign Up"}</h1>
-            <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+            <p className="py-6">Welcome to Grand Auto service.Sign up and descover a great amount of new opportunities and services !</p>
           </div>
         </div>
       </div>
