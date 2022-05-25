@@ -12,7 +12,7 @@ const ContactForm = () => {
            const data={
                name,email,subject,message
            }
-           fetch('http://localhost:4000/sendmessage',{
+           fetch('https://grandauto.herokuapp.com/sendmessage',{
              method:"POST",
              headers:{
                'content-type':'application/json'

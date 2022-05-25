@@ -26,7 +26,7 @@ const PurchaseModal = ({tool,newOrderQuantity,setIsOpen,refetch}) => {
           phone:phone,
           totalPrice:totalPrice
       }
-    fetch('http://localhost:4000/order',{
+    fetch('https://grandauto.herokuapp.com/order',{
       method:"POST",
       headers:{
         'content-type':'application/json',

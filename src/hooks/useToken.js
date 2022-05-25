@@ -13,7 +13,7 @@ const useToken=(user)=>{
     const signInUser={email:email}
     
     if(email){
-        fetch(`http://localhost:4000/user/${email}`,{
+        fetch(`https://grandauto.herokuapp.com/user/${email}`,{
             method:"PUT",
             headers:{
                 'content-type':'application/json'
@@ -22,7 +22,7 @@ const useToken=(user)=>{
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log('data inside useToken',data)
+            
             const newToken=data.token
             localStorage.setItem('accessToken',newToken)
             setToken(newToken)

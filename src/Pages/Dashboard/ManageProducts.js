@@ -6,8 +6,8 @@ import ProductDeleteModal from './ProductDeleteModal';
 
 const ManageProducts = () => {
     const [deleteProduct,setDeleteProduct]=useState(null)
-    const {data:products,isLoading,refetch}=useQuery('allproducts',()=>fetch('http://localhost:4000/tools').then(res=>res.json()))
-    console.log(products)
+    const {data:products,isLoading,refetch}=useQuery('allproducts',()=>fetch('https://grandauto.herokuapp.com/tools').then(res=>res.json()))
+    
     if(isLoading){
         return <div className='h-screen flex justify-center items-center'>
         <Loading />

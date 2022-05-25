@@ -13,7 +13,7 @@ const MyOrder = () => {
     const { data: myorder, isLoading,refetch } = useQuery("myorder", () =>
 
    
-      fetch(`http://localhost:4000/order?email=${user.email}`,{
+      fetch(`https://grandauto.herokuapp.com/order?email=${user.email}`,{
         headers:{
           'authorization':`Bearer ${localStorage.getItem('accessToken')}`
         }

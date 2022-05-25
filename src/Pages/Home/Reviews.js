@@ -7,7 +7,7 @@ import { useQuery } from "react-query";
 import Loading from "../Shared/Loading";
 
 const Reviews = () => {
-  const {data:reviewData,isLoading}=useQuery('allreview',()=>fetch('http://localhost:4000/review').then(res=>res.json()))
+  const {data:reviewData,isLoading}=useQuery('allreview',()=>fetch('https://grandauto.herokuapp.com/review').then(res=>res.json()))
   
  if(isLoading){
    return <div className="flex justify-center items-center h-20">

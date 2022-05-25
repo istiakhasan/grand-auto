@@ -7,7 +7,7 @@ import UserDeleteModal from './UserDeleteModal';
 const MakeAdmin = () => {
   const [makeadminData,setMakeAdminData]=useState(null)
   const [deleteUserData,setDeleteUserData]=useState(null)
-    const {data:userData,isLoading,refetch}=useQuery('allusersData',()=>fetch('http://localhost:4000/user',{
+    const {data:userData,isLoading,refetch}=useQuery('allusersData',()=>fetch('https://grandauto.herokuapp.com/user',{
       headers:{
         'authorization':`Bearer ${localStorage.getItem('accessToken')}`
       }

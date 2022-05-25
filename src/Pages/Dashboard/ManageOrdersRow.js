@@ -21,9 +21,9 @@ const ManageOrdersRow = ({i,orderItem,refetch,setDeleteOrder,setShiftOrder}) => 
         }
         </td>
         <td>
-            {orderItem.pay? <label onClick={()=>setShiftOrder(orderItem)} disabled={orderItem.status==="shift"} className='btn-primary btn btn-xs' for="shiftmodal">Shift Now</label>:
-             <label onClick={()=>setDeleteOrder(orderItem)} className='btn bg-red-500 hover:bg-red-700 border-0 text-white font-bold btn-xs' for="orderdeletemodal">Delete</label>
-            // <label onClick={()=>setDeleteOrder(orderItem)} className='btn bg-red-500 hover:bg-red-700 border-0 text-white font-bold btn-xs' for="shiftmodal">Delete</label>
+            {orderItem.pay? <label onClick={()=>setShiftOrder(orderItem)} disabled={orderItem.status==="shift"} className='btn-primary btn btn-xs' htmlFor="shiftmodal">Shift Now</label>:
+             <label onClick={()=>setDeleteOrder(orderItem)} className='btn bg-red-500 hover:bg-red-700 border-0 text-white font-bold btn-xs' htmlFor="orderdeletemodal">Delete</label>
+          
             
             
             }

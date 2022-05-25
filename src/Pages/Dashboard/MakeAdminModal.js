@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 const MakeAdminModal = ({makeadminData,setMakeAdminData,refetch}) => {
     const handleMakeAdmin=()=>{
-        fetch(`http://localhost:4000/makeadmin/${makeadminData.email}`,{
+        fetch(`https://grandauto.herokuapp.com/makeadmin/${makeadminData.email}`,{
             method:'PUT',
             headers:{
                 'authorization':`Bearer ${localStorage.getItem('accessToken')}`

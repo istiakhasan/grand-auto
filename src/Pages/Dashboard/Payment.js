@@ -11,7 +11,7 @@ const Payment = () => {
     "pk_test_51L1SoeFy5LiygH25WkcLlk6ErZDMZv0EIR7aU3EAiwFxDCLbD2nX7c2YNRN013cCFV5mFFZX43o2wWdNhfjPRqZF00RtHF53n6"
   );
 
-  const url = `http://localhost:4000/order/${paymentId}`;
+  const url = `https://grandauto.herokuapp.com/order/${paymentId}`;
 
   const { data: orderdProduc, isLoading } = useQuery(["order", paymentId], () =>
     fetch(url, {

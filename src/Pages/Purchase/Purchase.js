@@ -15,7 +15,7 @@ const Purchase = () => {
      
      const {toolsId}=useParams();
      const [isOpen,setIsOpen]=useState(false)
-     const url=`http://localhost:4000/tools/${toolsId}`
+     const url=`https://grandauto.herokuapp.com/tools/${toolsId}`
      const {data:tool,isLoading,refetch}=useQuery(`tool${toolsId}`,()=>fetch(url).then(res=>res.json()))
      
      const [newOrderQuantity,setNewOrderQuantity]=useState(tool?.minimum_quantity)

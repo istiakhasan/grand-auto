@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   useCreateUserWithEmailAndPassword,
@@ -40,11 +40,14 @@ const Login = () => {
     handleSubmit,
     reset,
   } = useForm();
+  useEffect(()=>{
+    if (token) {
+   
+      navigate(from, { replace: true });
+    }
+  },[token,from,navigate])
 
-  if (token) {
-    console.log(user || signInuser || googleUser);
-    navigate(from, { replace: true });
-  }
+ 
   const onSubmit = async (data) => {
     const { name, email, password } = data;
     if (!newUser) {

@@ -40,7 +40,7 @@ const AddReview = () => {
             comment: e.target.comment.value,
             image: image,
           }
-          fetch('http://localhost:4000/review', {
+          fetch('https://grandauto.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

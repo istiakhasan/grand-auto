@@ -17,7 +17,7 @@ const CheckoutForm = ({orderdProduc}) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:4000/create-payment-intent', {
+        fetch('https://grandauto.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -80,7 +80,7 @@ const CheckoutForm = ({orderdProduc}) => {
                 transectionId:paymentIntent.id
               }
             
-             fetch(`http://localhost:4000/order/${_id}`,{
+             fetch(`https://grandauto.herokuapp.com/order/${_id}`,{
                  method:"PATCH",
                  headers:{
                      'content-type':'application/json',

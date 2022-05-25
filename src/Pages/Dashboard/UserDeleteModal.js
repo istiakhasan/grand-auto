@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 const UserDeleteModal = ({setDeleteUserData,deleteUserData,refetch}) => {
     const handleDeleteUser=()=>{
-        const url=`http://localhost:4000/user?email=${deleteUserData.email}`
+        const url=`https://grandauto.herokuapp.com/user?email=${deleteUserData.email}`
         fetch(url,{
             method:"DELETE",
             headers:{

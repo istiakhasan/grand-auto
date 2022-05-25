@@ -53,7 +53,7 @@ const AddProducts = () => {
             name,image,description,available_quantity,minimum_quantity,price
             }
             
-            fetch('http://localhost:4000/addproduct', {
+            fetch('https://grandauto.herokuapp.com/addproduct', {
               method: 'POST',
               headers: {
                   'content-type': 'application/json',
