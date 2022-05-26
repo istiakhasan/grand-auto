@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import Footer from "../Shared/Footer";
+import Loading from "../Shared/Loading";
 import Navbar from "../Shared/Navbar";
 import PurchaseModal from "./PurchaseModal";
 
@@ -11,51 +12,37 @@ const Purchase = () => {
      const [inputError,setInputError]=useState('')
      const [isActive,setIsActive]=useState(false)
      const inpurRef=useRef()
-   
-     
      const {toolsId}=useParams();
      const [isOpen,setIsOpen]=useState(false)
      const url=`https://grandauto.herokuapp.com/tools/${toolsId}`
-     const {data:tool,isLoading,refetch}=useQuery(`tool${toolsId}`,()=>fetch(url).then(res=>res.json()))
-     
+     const {data:tool,isLoading,refetch}=useQuery(`tool${toolsId}`,()=>fetch(url).then(res=>res.json())) 
      const [newOrderQuantity,setNewOrderQuantity]=useState(tool?.minimum_quantity)
-     
-     
-     if(isLoading){
-       
-       return ;
+      
+     if(isLoading){     
+       return  <div> <Loading /> </div>
       }
   
     const handleChange=(e)=>{
       const value=parseInt(e.target.value)
       setIsActive(false)
-    
-      if(value<tool.minimum_quantity){
-        
+      if(value<tool.minimum_quantity){ 
         setIsActive(false)
         setInputError(`Quantity is less then minimum  quantity`)
         return
       }
-      
       if(value>tool.available_quantity){
          
         setIsActive(false)
           setInputError(`quantity is more than available quantity`)
           return
-      }
-    
-      setInputValue(value)
-     
+      } 
+      setInputValue(value)   
       setIsActive(true)
-      setInputError('')
-     
-      
-      
+      setInputError('')  
     }
     
 
-     
-
+  
     const handleSubmit = async(e) => {
            setNewOrderQuantity(inputValue)
            inpurRef.current.value=" "
@@ -75,9 +62,9 @@ const Purchase = () => {
           />
           <div className="lg:px-5 mx-3 lg:mx-0">
          
-            <h1 className="text-5xl font-bold">{tool.name}</h1>
-            <p className="text-2xl">Id:{tool._id}</p>
-            <p className="py-4 text-lg">
+            <h1 className="lg:text-5xl text-xl font-bold">{tool.name}</h1>
+            <p className="lg:text-2xl text-lg">Id:{tool._id}</p>
+            <p className="py-4 text-sm">
             {tool.description}
             </p>
             
@@ -86,9 +73,9 @@ const Purchase = () => {
             <p className="text-2xl font-bold text-green-800">${tool.price} <span className="text-sm text-black font-semibold">/per</span></p>
          
             <div className="form-control lg:w-full lg:max-w-xs">
-                <div className="flex">
+                <div className="lg:flex">
 
-                <input ref={inpurRef}  onChange={handleChange} placeholder={tool.minimum_quantity} type="text" className="input mr-3 input-bordered input-primary w-full max-w-xs" />
+                <input ref={inpurRef}  onChange={handleChange} placeholder={tool.minimum_quantity} type="text" className="input mr-3 my-3 lg:my-0 input-bordered input-primary w-full max-w-xs" />
                 <button disabled={!isActive || isNaN(inputValue)}  onClick={handleSubmit} className="btn btn-success">Add Quantity</button>
                 </div>
                 <label className="label">
