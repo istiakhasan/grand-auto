@@ -16,19 +16,16 @@ const Review = ({review}) => {
         <h2 className="card-title">{review.name}</h2>
         <p>{review.company}</p>
         <div className="divider h-auto text-green">
-            <img className=" h-20 " src={dividerimg} alt="" />
+          <img className=" h-20 " src={dividerimg} alt="" />
         </div>
         <p>{review.comment}</p>
         <div className="card-actions ">
-            <div className="flex">
-                {
-                    [...Array(rating).keys()].map((number,i)=><StarIcon key={i}  className="w-6 text-yellow-600" />)
-                }
-               
-
-          
-        
-            </div>
+          <div className="flex">
+            {
+            [...Array(rating).keys()].map((number,i)=>
+            <StarIcon key={i} className="w-6 text-yellow-600" />)
+            }
+          </div>
         </div>
       </div>
     </div>

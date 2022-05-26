@@ -106,10 +106,8 @@ const CheckoutForm = ({orderdProduc}) => {
     }
     return (
          <>
-           <form onSubmit={handleSubmit}>
-                <CardElement
-                className='bg-white p-5 rounded'
-                    options={{
+             <form onSubmit={handleSubmit}>
+                 <CardElement className='bg-white p-5 rounded' options={{
                         style: {
                             base: {
                                 fontSize: '16px',
@@ -122,22 +120,22 @@ const CheckoutForm = ({orderdProduc}) => {
                                 color: 'red',
                             },
                         },
-                    }}
-                />
-               
-               { paymentError && <p className='text-red-400 font-bold text-sm'>{paymentError}</p>}
-               {success && <>
-                <p className='text-green-400 font-bold text-sm'>{success}</p>
-                <p className='text-orange-500 font-bold text-sm'>Transection:{transectionId}</p>
-               
-               </>}
-                <button className='btn btn-success btn-sm mt-4 text-black font-bold text-xs'  type="submit" disabled={!stripe || !clientSecret} >
-                    Confirm Payment
-                </button>
-                {sendingElement}
-            </form>
-           
-                    </>
+                    }} />
+
+                 { paymentError && <p className='text-red-400 font-bold text-sm'>{paymentError}</p>}
+                 {success && <>
+                     <p className='text-green-400 font-bold text-sm'>{success}</p>
+                     <p className='text-orange-500 font-bold text-sm'>Transection:{transectionId}</p>
+
+                 </>}
+                 <button className='btn btn-success btn-sm mt-4 text-black font-bold text-xs' type="submit"
+                     disabled={!stripe || !clientSecret}>
+                     Confirm Payment
+                 </button>
+                 {sendingElement}
+             </form>
+
+         </>
     );
 };
 

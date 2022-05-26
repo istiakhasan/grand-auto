@@ -85,14 +85,7 @@ if(error){
         <div className="text-center  ">
           <div className="avatar">
             <div className="lg:w-40 w-20    rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img
-                alt=""
-               className=""
-                src={
-                  user?.phoneNumber ||
-                  "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
-                }
-              />
+              <img alt=""  src={ user?.photoURL|| "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" } />
             </div>
           </div>
 
@@ -100,63 +93,57 @@ if(error){
         </div>
         <div className="col-span-2 mt-10 lg:mt-0">
           <div className="w-[90%]">
-          <p className="text-2xl font-semibold">Information </p>
-          <div className="divider"></div>
-          <div className="grid lg:grid-cols-2">
-            <div>
-              <p>Email</p>
-              <p>{user.email}</p>
-            </div>
-            <div>
-              <p>Phone</p>
-              <p>{myInfo?.phone || "empty"}</p>
-            </div>
-          </div>
-          <div className="mt-10">
-            <p className="text-2xl font-semibold">Education</p>
+            <p className="text-2xl font-semibold">Information </p>
             <div className="divider"></div>
-            <div>
+            <div className="grid lg:grid-cols-2">
               <div>
-                <p>Collage</p>
-                <p>{myInfo?.education || "empty"}</p>
-              </div>
-            </div>
-          </div>
-          <div className="mt-10">
-            <p className="text-2xl font-semibold">Address/City</p>
-            <div className="divider"></div>
-            <div>
-              <div>
-                <p>City</p>
-                <p>{myInfo?.city || "empty"}</p>
-              </div>
-            </div>
-          </div>
-          <div className="mt-10">
-            <p className="text-2xl font-semibold">Social Link</p>
-            <div className="divider"></div>
-            <div className="grid lg:grid-cols-2 gap-5">
-              <div>
-                <p>Facebook</p>
-                <a
-                  className="text-blue-600 hover:text-blue-800 underline"
-                  href={myInfo?.facebook}
-                >
-                 {!myInfo ? "empty":" Redirect to my facebook profile"}
-                </a>
+                <p>Email</p>
+                <p>{user.email}</p>
               </div>
               <div>
-                <p>LinkedIn</p>
+                <p>Phone</p>
+                <p>{myInfo?.phone || "empty"}</p>
+              </div>
+            </div>
+            <div className="mt-10">
+              <p className="text-2xl font-semibold">Education</p>
+              <div className="divider"></div>
+              <div>
+                <div>
+                  <p>Collage</p>
+                  <p>{myInfo?.education || "empty"}</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-10">
+              <p className="text-2xl font-semibold">Address/City</p>
+              <div className="divider"></div>
+              <div>
+                <div>
+                  <p>City</p>
+                  <p>{myInfo?.city || "empty"}</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-10">
+              <p className="text-2xl font-semibold">Social Link</p>
+              <div className="divider"></div>
+              <div className="grid lg:grid-cols-2 gap-5">
+                <div>
+                  <p>Facebook</p>
+                  <a className="text-blue-600 hover:text-blue-800 underline" href={myInfo?.facebook}>
+                    {!myInfo ? "empty":" Redirect to my facebook profile"}
+                  </a>
+                </div>
+                <div>
+                  <p>LinkedIn</p>
 
-                <a
-                  className="text-blue-600 hover:text-blue-800 underline"
-                  href={myInfo?.linkedin}
-                >
-                {!myInfo ?"empty":"   Redirect to my linkedIn profile"}
-                </a>
+                  <a className="text-blue-600 hover:text-blue-800 underline" href={myInfo?.linkedin}>
+                    {!myInfo ?"empty":" Redirect to my linkedIn profile"}
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
@@ -166,44 +153,29 @@ if(error){
           Add/Update Information
         </h2>
         <div className="lg:w-10/12 mx-auto">
-          <form className="shadow-2xl py-20 rounded-3xl" onSubmit={handleSubmit} >
+          <form className="shadow-2xl py-20 rounded-3xl" onSubmit={handleSubmit}>
             <div className="lg:flex p-5 lg:p-0  rounded-md py-8 lg:px-6">
               <div className="lg:mr-10 lg:w-6/12 ">
                 <div className="form-control w-full ">
                   <label className="label">
                     <span className="label-text">Education</span>
                   </label>
-                  <input
-                    required
-                    type="text"
-                    name="education"
-                    placeholder="Enter your education"
-                    className="input input-bordered input-primary w-full "
-                  />
+                  <input required type="text" name="education" placeholder="Enter your education"
+                    className="input input-bordered input-primary w-full " />
                 </div>
                 <div className="form-control w-full ">
                   <label className="label">
                     <span className="label-text">City</span>
                   </label>
-                  <input
-                    required
-                    type="text"
-                    name="city"
-                    placeholder="Enter your city"
-                    className="input input-bordered input-primary w-full "
-                  />
+                  <input required type="text" name="city" placeholder="Enter your city"
+                    className="input input-bordered input-primary w-full " />
                 </div>
                 <div className="form-control w-full ">
                   <label className="label">
                     <span className="label-text">Phone Number</span>
                   </label>
-                  <input
-                    required
-                    type="text"
-                    name="phone"
-                    placeholder="Enter your phone number"
-                    className="input input-bordered input-primary w-full "
-                  />
+                  <input required type="text" name="phone" placeholder="Enter your phone number"
+                    className="input input-bordered input-primary w-full " />
                 </div>
               </div>
               <div className="lg:w-6/12  ">
@@ -211,32 +183,19 @@ if(error){
                   <label className="label">
                     <span className="label-text">LinkedIn Link</span>
                   </label>
-                  <input
-                    required
-                    type="text"
-                    name="linkedin"
-                    placeholder="Enter your linkedIn profile link"
-                    className="input input-bordered input-primary w-full "
-                  />
+                  <input required type="text" name="linkedin" placeholder="Enter your linkedIn profile link"
+                    className="input input-bordered input-primary w-full " />
                 </div>
                 <div className="form-control w-full ">
                   <label className="label">
                     <span className="label-text">Facebook Link</span>
                   </label>
-                  <input
-                    required
-                    type="text"
-                    name="facebook"
-                    placeholder="Enter your facebook profile link"
-                    className="input input-bordered input-primary w-full "
-                  />
+                  <input required type="text" name="facebook" placeholder="Enter your facebook profile link"
+                    className="input input-bordered input-primary w-full " />
                 </div>
               </div>
             </div>
-            <button
-              type="submit"
-              className="btn btn-primary lg:ml-auto mx-auto block mt-5 "
-            >
+            <button type="submit" className="btn btn-primary lg:ml-auto mx-auto block mt-5 ">
               Update Information
             </button>
             {sendingElement}

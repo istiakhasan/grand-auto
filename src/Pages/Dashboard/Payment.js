@@ -30,7 +30,6 @@ const Payment = () => {
       <h2 className="text-primary text-3xl mt-5 font-semibold text-center">
         Please Complete Your Payment
       </h2>
-
       <div className="card w-50 mx-auto max-w-md text-white shadow-xl bg-primary my-12 h-auto p-20">
         <h2 className=" text-2xl font-semibold ">{orderdProduc.toolsName}</h2>
         <h2 className="font-semibold text-white">{orderdProduc.toolsId}</h2>

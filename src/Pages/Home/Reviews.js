@@ -19,12 +19,12 @@ const Reviews = () => {
       <h2 className="text-center text-4xl text-primary font-bold my-20 ">
         Customer Reviews
       </h2>
-
       <div className="grid mx-5 lg:mx-auto lg:grid-cols-3 gap-10 max-w-7xl ">
-          {
-              reviewData.map(review=><Review key={review._id} review={review} />)
-          }
-     
+        {
+        reviewData.map(review=>
+        <Review key={review._id} review={review} />)
+        }
+
       </div>
     </div>
   );

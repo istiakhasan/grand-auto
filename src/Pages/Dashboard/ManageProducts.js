@@ -16,30 +16,29 @@ const ManageProducts = () => {
 
     return (
         <div>
-            <h2 className='text-3xl text-center font-bold text-primary mb-10 '>Manage Products</h2>
-            <div className="overflow-x-auto ">
-        <table className="table table-zebra w-full px-10">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Image</th>
-              <th>Product Name</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Action</th>
-              
-            </tr>
-          </thead>
-          <tbody>
-           
-             {products?.map((product, i) => (
-             <Product setDeleteProduct={setDeleteProduct}  key={product._id} product={product} i={i} />
-            ))} 
-          </tbody>
-        </table>
-        {deleteProduct && <ProductDeleteModal deleteProduct={deleteProduct} refetch={refetch} setDeleteProduct={setDeleteProduct}  />} 
-      </div>
-            
+          <h2 className='text-3xl text-center font-bold text-primary mb-10 '>Manage Products</h2>
+          <div className="overflow-x-auto ">
+            <table className="table table-zebra w-full px-10">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Image</th>
+                  <th>Product Name</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {products?.map((product, i) => (
+                <Product setDeleteProduct={setDeleteProduct} key={product._id} product={product} i={i} />
+                ))}
+              </tbody>
+            </table>
+            {deleteProduct &&
+            <ProductDeleteModal deleteProduct={deleteProduct} refetch={refetch} setDeleteProduct={setDeleteProduct} />}
+          </div>
+
         </div>
     );
 };

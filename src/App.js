@@ -25,8 +25,6 @@ import ForgatePassword from './Pages/Login/ForgatePassword';
 function App() {
   return (
     <div>
-      
-     
       <Routes>
        <Route path='/' element={<Home />} />
        <Route path='/home' element={<Home />} />
@@ -34,12 +32,11 @@ function App() {
        <Route path='/blog' element={<Blog />} />
        <Route path='/portfolio' element={<Portfolio />} />
        <Route  path='/forgatepass' element={<ForgatePassword />}></Route>  
-       
        <Route path='/purchase/:toolsId' element={
          <PrivateRoute>
          <Purchase />
           </PrivateRoute>} />
-       <Route path='dashboard' element={
+        <Route path='dashboard' element={
          <PrivateRoute>
          <Dashboard /> 
         </PrivateRoute>}>
@@ -47,7 +44,6 @@ function App() {
            <Route  index  element={<DashboardHome />}></Route>  
            <Route  path='myreview' element={<AddReview />}></Route>  
            <Route  path='myprofile' element={<MyProfile />}></Route>  
-           
            <Route  path='makeadmin' element={<AdminPrivateRoute><MakeAdmin /></AdminPrivateRoute>}></Route>  
            <Route  path='addproduct' element={<AdminPrivateRoute><AddProducts /></AdminPrivateRoute>}></Route>  
            <Route  path='manageorders' element={<AdminPrivateRoute><ManageOrders /></AdminPrivateRoute>}></Route>  

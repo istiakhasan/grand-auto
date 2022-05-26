@@ -53,50 +53,44 @@ const Purchase = () => {
     <>
       <Navbar />
       <div className="hero lg:min-h-screen bg-base-200">
-     
         <div className=" lg:grid mx-4 lg:grid-cols-2 mt-10 lg:mt-0 ">
-          <img
-            src={tool.image}
-            className="flex-1 w-[40vh] lg:w-[80vh] lg:max-w-md mb-16 lg:mb-0 rounded-lg shadow-2xl mx-auto"
-            alt=""
-          />
+          <img src={tool.image}
+            className="flex-1 w-[40vh] lg:w-[80vh] lg:max-w-md mb-16 lg:mb-0 rounded-lg shadow-2xl mx-auto" alt="" />
           <div className="lg:px-5 mx-3 lg:mx-0">
-         
+
             <h1 className="lg:text-5xl text-xl font-bold">{tool.name}</h1>
             <p className="lg:text-2xl text-lg">Id:{tool._id}</p>
             <p className="py-4 text-sm">
-            {tool.description}
+              {tool.description}
             </p>
-            
-            <p className="font-semibold">Available  Quantity:<span className="text-green-800 font-bold">{tool.available_quantity}</span></p>
-        
-            <p className="text-2xl font-bold text-green-800">${tool.price} <span className="text-sm text-black font-semibold">/per</span></p>
-         
+            <p className="font-semibold">Available Quantity:<span
+                className="text-green-800 font-bold">{tool.available_quantity}</span></p>
+
+            <p className="text-2xl font-bold text-green-800">${tool.price} <span
+                className="text-sm text-black font-semibold">/per</span></p>
             <div className="form-control lg:w-full lg:max-w-xs">
-                <div className="lg:flex">
-
-                <input ref={inpurRef}  onChange={handleChange} placeholder={tool.minimum_quantity} type="text" className="input mr-3 my-3 lg:my-0 input-bordered input-primary w-full max-w-xs" />
-                <button disabled={!isActive || isNaN(inputValue)}  onClick={handleSubmit} className="btn btn-success">Add Quantity</button>
-                </div>
-                <label className="label">
-                <p className="font-semibold">Order Quantity:<span className="text-green-800 font-bold">{newOrderQuantity || tool.minimum_quantity}</span></p>
-                
-                </label>
-                <p className="text-red-700 font-semibold mt-2">{inputError}</p>
-               
+              <div className="lg:flex">
+                <input ref={inpurRef} onChange={handleChange} placeholder={tool.minimum_quantity} type="text"
+                  className="input mr-3 my-3 lg:my-0 input-bordered input-primary w-full max-w-xs" />
+                <button disabled={!isActive || isNaN(inputValue)} onClick={handleSubmit} className="btn btn-success">Add
+                  Quantity</button>
               </div>
-              <div className="mt-2">
-
-              
-              </div>
-            <label onClick={()=>setIsOpen(true)} htmlFor="purchaseModal" className="btn btn-primary mb-10 lg:mb-0 mt-5">Order Now</label>
-          
-            
+              <label className="label">
+                <p className="font-semibold">Order Quantity:<span className="text-green-800 font-bold">{newOrderQuantity
+                    || tool.minimum_quantity}</span></p>
+              </label>
+              <p className="text-red-700 font-semibold mt-2">{inputError}</p>
+            </div>
+            <div className="mt-2">
+            </div>
+            <label onClick={()=>setIsOpen(true)} htmlFor="purchaseModal" className="btn btn-primary mb-10 lg:mb-0
+              mt-5">Order Now</label>
           </div>
         </div>
       </div>
-     {isOpen && <PurchaseModal refetch={refetch} setIsOpen={setIsOpen} newOrderQuantity={newOrderQuantity} tool={tool} />}
-     <Footer />
+      {isOpen &&
+      <PurchaseModal refetch={refetch} setIsOpen={setIsOpen} newOrderQuantity={newOrderQuantity} tool={tool} />}
+      <Footer />
     </>
   );
 };

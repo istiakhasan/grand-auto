@@ -29,24 +29,20 @@ const ForgatePassword = () => {
 
     return (
         <>
-        <Navbar />
-        <Helmet><title>Reset Pass</title></Helmet>
-
-        <div className='min-h-screen flex justify-center items-center mx-10'>
-                 
-
+          <Navbar />
+          <Helmet>
+            <title>Reset Pass</title>
+          </Helmet>
+          <div className='min-h-screen flex justify-center items-center mx-10'>
             <form onSubmit={handleResetPass}>
-             {loadingElement}   
-            <label className='text-2xl'>Enter Your Email:</label><br />
-            <input ref={emailRef} type="text" placeholder="Email..." className="input input-bordered input-primary w-full max-w-xs mt-4" />
-            <button type='submit' className='btn btn-primary mt-5'>Send Reset Mail</button>
+              {loadingElement}
+              <label className='text-2xl'>Enter Your Email:</label><br />
+              <input ref={emailRef} type="text" placeholder="Email..."
+                className="input input-bordered input-primary w-full max-w-xs mt-4" />
+              <button type='submit' className='btn btn-primary mt-5'>Send Reset Mail</button>
             </form>
-
-        </div>
-
-
-        <Footer />
-            
+          </div>
+          <Footer />
         </>
     );
 };

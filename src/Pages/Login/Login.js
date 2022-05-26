@@ -81,11 +81,6 @@ const Login = () => {
     );
   }
 
-
-
-
- 
-
   return (
     <>
       <Navbar />
@@ -97,60 +92,39 @@ const Login = () => {
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               {newUser && (
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Name</span>
-                  </label>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
 
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="input input-bordered w-full max-w-xs"
-                    {...register("name", {
-                      required: {
-                        value: true,
-                        message: "Name is Required",
-                      },
-                    })}
-                  />
-                  <label className="label">
-                    {errors.name?.type === "required" && (
-                      <span className="label-text-alt">
-                        {errors.name.message}
-                      </span>
-                    )}
-                  </label>
-                </div>
+                <input type="text" placeholder="Your Name" className="input input-bordered w-full max-w-xs"
+                  {...register("name", { required: { value: true, message: "Name is Required" , }, })} />
+                <label className="label">
+                  {errors.name?.type === "required" && (
+                  <span className="label-text-alt">
+                    {errors.name.message}
+                  </span>
+                  )}
+                </label>
+              </div>
               )}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="input input-bordered w-full max-w-xs"
-                  {...register("email", {
-                    required: {
-                      value: true,
-                      message: "Email is Required",
-                    },
-                    pattern: {
-                      value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
-                      message: "Providede a valid email",
-                    },
-                  })}
-                />
+                <input type="email" placeholder="Your email" className="input input-bordered w-full max-w-xs"
+                  {...register("email", { required: { value: true, message: "Email is Required" , }, pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, message: "Providede a valid email" , }, })} />
                 <label className="label">
                   {errors.email?.type === "required" && (
-                    <span className="label-text-alt">
-                      {errors.email.message}
-                    </span>
+                  <span className="label-text-alt">
+                    {errors.email.message}
+                  </span>
                   )}
                   {errors.email?.type === "pattern" && (
-                    <span className="label-text-alt">
-                      {errors.email.message}
-                    </span>
+                  <span className="label-text-alt">
+                    {errors.email.message}
+                  </span>
                   )}
                 </label>
               </div>
@@ -158,36 +132,24 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input
-                  type="password"
-                  placeholder="Your password"
-                  className="input input-bordered w-full max-w-xs"
-                  {...register("password", {
-                    required: {
-                      value: true,
-                      message: "Password is Required",
-                    },
-                    minLength: {
-                      value: 6,
-                      message: "Password must be 6 charachter",
-                    },
-                  })}
-                />
+                <input type="password" placeholder="Your password" className="input input-bordered w-full max-w-xs"
+                  {...register("password", { required: { value: true, message: "Password is Required" , }, minLength: {
+                  value: 6, message: "Password must be 6 charachter" , }, })} />
                 <label className="label">
                   {errors.password?.type === "required" && (
-                    <span className="label-text-alt">
-                      {errors.password.message}
-                    </span>
+                  <span className="label-text-alt">
+                    {errors.password.message}
+                  </span>
                   )}
                   {errors.password?.type === "minLength" && (
-                    <span className="label-text-alt">
-                      {errors.password.message}
-                    </span>
+                  <span className="label-text-alt">
+                    {errors.password.message}
+                  </span>
                   )}
                 </label>
                 <label className="label">
-                  <Link to="/forgatepass"  className="label-text-alt link link-hover">
-                    Forgot password?
+                  <Link to="/forgatepass" className="label-text-alt link link-hover">
+                  Forgot password?
                   </Link>
                 </label>
               </div>
@@ -199,22 +161,20 @@ const Login = () => {
               <p className="text-center font-semibold">
                 <small>
                   {!newUser
-                    ? "Don't have a account?"
-                    : "Already have a account?"}{" "}
+                  ? "Don't have a account?"
+                  : "Already have a account?"}{" "}
                 </small>
-                <span
-                  onClick={() => setNewUser(!newUser)}
+                <span onClick={()=> setNewUser(!newUser)}
                   className="text-primary font-semibold cursor-pointer"
-                >
+                  >
                   {!newUser ? "Register" : "Login"}
                 </span>
               </p>
             </form>
             {errorElement}
-            <button
-              onClick={() => signInWithGoogle()}
+            <button onClick={()=> signInWithGoogle()}
               className="btn btn-outline btn-primary mx-8 mb-10"
-            >
+              >
               Google Sign In
             </button>
           </div>

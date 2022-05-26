@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading';
 import AdminRow from './AdminRow';
 import MakeAdminModal from './MakeAdminModal';
 import UserDeleteModal from './UserDeleteModal';
@@ -13,35 +14,34 @@ const MakeAdmin = () => {
       }
     }).then(res=>res.json()))
     if(isLoading){
-        return ;
+        return <div className='h-screen flex justify-center items-center'><Loading /></div>;
     }
     return (
         <div>
-            <h2 className='text-primary text-3xl text-center mb-5'>Make admin</h2>
-            <div className="overflow-x-auto">
-        <table className="table table-zebra w-full">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Email</th>
-             
-              <th>Make Admin</th>
-             
-              <th>Action</th>
-          
-            </tr>
-          </thead>
-          <tbody>
-           
-            {userData?.map((item, i) => (
-             <AdminRow setDeleteUserData={setDeleteUserData} setMakeAdminData={setMakeAdminData} refetch={refetch}  key={item._id} item={item} i={i} />
-            ))}
-          </tbody>
-        </table>
-       {makeadminData && <MakeAdminModal makeadminData={makeadminData} refetch={refetch} setMakeAdminData={setMakeAdminData}  />} 
-       {deleteUserData && <UserDeleteModal deleteUserData={deleteUserData} refetch={refetch} setDeleteUserData={setDeleteUserData}  />} 
-      </div>
-            
+          <h2 className='text-primary text-3xl text-center mb-5'>Make admin</h2>
+          <div className="overflow-x-auto">
+            <table className="table table-zebra w-full">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Email</th>
+                  <th>Make Admin</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {userData?.map((item, i) => (
+                <AdminRow setDeleteUserData={setDeleteUserData} setMakeAdminData={setMakeAdminData} refetch={refetch}
+                  key={item._id} item={item} i={i} />
+                ))}
+              </tbody>
+            </table>
+            {makeadminData &&
+            <MakeAdminModal makeadminData={makeadminData} refetch={refetch} setMakeAdminData={setMakeAdminData} />}
+            {deleteUserData &&
+            <UserDeleteModal deleteUserData={deleteUserData} refetch={refetch} setDeleteUserData={setDeleteUserData} />}
+          </div>
+
         </div>
     );
 };

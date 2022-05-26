@@ -14,41 +14,44 @@ const ManageOrders = () => {
             'authorization':`Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res=>res.json()))
+    
     if(isLoading){
         return <div className="flex justify-center items-center h-20">
-          <Loading />
-        </div>
+                     <Loading />
+              </div>
       }
    
     return (
         <div>
-            <h2 className='text-center text-3xl text-primary  font-semibold'>Manage Orders</h2>
-            <table className="table table-zebra w-full">
-          <thead>
-            <tr>
-              <th>No.</th>
-              <th>Name</th>
-              <th>email</th>
-              <th>Product Name</th>
-              <th>Total Price</th>
-              <th>Quantity</th>
-              <th>Payment Status</th>
-              <th> Status</th>
-              <th>Action</th>
-          
-            </tr>
-          </thead>
-          <tbody>
-           
-             {ordersProduct?.map((orderItem, i) => (
-             <ManageOrdersRow setShiftOrder={setShiftOrder} setDeleteOrder={setDeleteOrder} refetch={refetch}  key={orderItem._id} orderItem={orderItem} i={i} />
-            ))}
-          </tbody>
-        </table>
-      
-       {shiftOrder && <ShiftModal shiftOrder={shiftOrder} refetch={refetch} setShiftOrder={setShiftOrder}  />}
-       {deleteOrder &&  <OrderDeleteModal deleteOrder={deleteOrder} refetch={refetch} setDeleteOrder={setDeleteOrder}  />}
-            
+          <h2 className='text-center text-3xl text-primary  font-semibold'>Manage Orders</h2>
+          <table className="table table-zebra w-full">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>email</th>
+                <th>Product Name</th>
+                <th>Total Price</th>
+                <th>Quantity</th>
+                <th>Payment Status</th>
+                <th> Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              {ordersProduct?.map((orderItem, i) => (
+              <ManageOrdersRow setShiftOrder={setShiftOrder} setDeleteOrder={setDeleteOrder} refetch={refetch}
+                key={orderItem._id} orderItem={orderItem} i={i} />
+              ))}
+            </tbody>
+          </table>
+
+          {shiftOrder &&
+          <ShiftModal shiftOrder={shiftOrder} refetch={refetch} setShiftOrder={setShiftOrder} />}
+          {deleteOrder &&
+          <OrderDeleteModal deleteOrder={deleteOrder} refetch={refetch} setDeleteOrder={setDeleteOrder} />}
+
         </div>
     );
 };

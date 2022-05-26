@@ -30,13 +30,11 @@ const ShiftModa = ({shiftOrder,refetch,setShiftOrder}) => {
             product in your list if your delete !!
           </p>
           <div className="modal-action">
-            <button onClick={handleShiftOrder}  className="btn bg-green-600 hover:bg-green-700 border-0 btn-sm text-white">
+            <button onClick={handleShiftOrder}
+              className="btn bg-green-600 hover:bg-green-700 border-0 btn-sm text-white">
               Confirm
             </button>
-            <label
-              htmlFor="shiftmodal"
-              className="btn btn-sm bg-red-600 text-white border-0 hover:bg-red-700"
-            >
+            <label htmlFor="shiftmodal" className="btn btn-sm bg-red-600 text-white border-0 hover:bg-red-700">
               Cancel
             </label>
           </div>

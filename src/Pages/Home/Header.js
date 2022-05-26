@@ -4,16 +4,13 @@ import BannerSlider from "./BannerSlider";
 
 const Header = () => {
   return (
-    <div
-      style={{
+    <div style={{
         background: `url(${banner})`,
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-      }}
-      className="w-full lg:h-screen"
-    >
+      }} className="w-full lg:h-screen">
       <BannerSlider />
     </div>
   );

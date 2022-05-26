@@ -9,33 +9,27 @@ import CancelModal from "./CancelModal";
 import OrderRow from "./OrderRow";
 
 const MyOrder = () => {
-  const [deleteOrder,setDeleteOrder]=useState(null)
+  const [deleteOrder, setDeleteOrder] = useState(null)
   const [user] = useAuthState(auth);
-    const { data: myorder, isLoading,refetch } = useQuery("myorder", () =>
-      fetch(`https://grandauto.herokuapp.com/order?email=${user.email}`,{
-        headers:{
-          'authorization':`Bearer ${localStorage.getItem('accessToken')}`
-        }
-      }).then((res) =>
-       {
-          if(res.status===403 || res.status===401){
-           
-            signOut(auth)
-            localStorage.removeItem('accessToken')
-            toast.error(res.status)
-            return 
-          }
-         return res.json()
-        }
-      )
-     
-  
-  )
-
- 
-
-
-  
+  const {
+    data: myorder,
+    isLoading,
+    refetch
+  } = useQuery("myorder", () =>
+    fetch(`https://grandauto.herokuapp.com/order?email=${user.email}`, {
+      headers: {
+        'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+      }
+    }).then((res) => {
+      if (res.status === 403 || res.status === 401) {
+        signOut(auth)
+        localStorage.removeItem('accessToken')
+        toast.error(res.status)
+        return
+      }
+      return res.json()
+    }))
+    
   if (isLoading) {
     return <div className="h-screen flex justify-center items-center"><Loading /></div>
   }
@@ -59,13 +53,14 @@ const MyOrder = () => {
             </tr>
           </thead>
           <tbody>
-           
+
             {myorder?.map((item, i) => (
-             <OrderRow setDeleteOrder={setDeleteOrder} key={item._id} item={item} i={i} />
+            <OrderRow setDeleteOrder={setDeleteOrder} key={item._id} item={item} i={i} />
             ))}
           </tbody>
         </table>
-       {deleteOrder && <CancelModal deleteOrder={deleteOrder} refetch={refetch} setDeleteOrder={setDeleteOrder}  />}
+        {deleteOrder &&
+        <CancelModal deleteOrder={deleteOrder} refetch={refetch} setDeleteOrder={setDeleteOrder} />}
       </div>
     </div>
   );

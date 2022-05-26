@@ -23,27 +23,27 @@ const ProductDeleteModal = ({deleteProduct,refetch,setDeleteProduct}) => {
     }
     return (
         <>
-   
+          <input type="checkbox" id="productDeleteModal" className="modal-toggle z-50" />
+          <div className="modal z-30 modal-bottom sm:modal-middle">
+            <div className="modal-box">
+              <h3 className="font-bold text-2xl">
+                Are you sure?
+              </h3>
+              <p className="py-4">
+                Are you sure you want to cancel this product? You CAN NOT view this product in your list if you Cancel!!
+              </p>
+              <div className="modal-action">
+                <button onClick={handleDeleteProduct}
+                  className="btn bg-red-600 hover:bg-red-700 border-0 btn-sm text-white">Confirm</button>
+                <label htmlFor="productDeleteModal"
+                  className="btn btn-sm bg-green-600 text-white border-0 hover:bg-green-700">
+                  Cancel
+                </label>
 
-        <input type="checkbox" id="productDeleteModal" className="modal-toggle z-50" />
-        <div className="modal z-30 modal-bottom sm:modal-middle">
-          <div className="modal-box">
-            <h3 className="font-bold text-2xl">
-              Are you sure?
-            </h3>
-            <p className="py-4">
-             Are you sure you want to cancel this product? You CAN NOT view this product in your list if your Cancel !!
-            </p>
-            <div className="modal-action">
-              <button onClick={handleDeleteProduct} className="btn bg-red-600 hover:bg-red-700 border-0 btn-sm text-white">Confirm</button>
-              <label  htmlFor="productDeleteModal" className="btn btn-sm bg-green-600 text-white border-0 hover:bg-green-700">
-                Cancel
-              </label>
-           
+              </div>
             </div>
           </div>
-        </div>
-      </>
+        </>
     );
 };
 
