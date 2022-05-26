@@ -1,6 +1,7 @@
 
 import React, { useRef } from 'react';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import { Helmet } from 'react-helmet-async';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Footer from '../Shared/Footer';
@@ -8,7 +9,7 @@ import Loading from '../Shared/Loading';
 import Navbar from '../Shared/Navbar';
 
 const ForgatePassword = () => {
-    const [sendPasswordResetEmail, sending, resetError] =
+    const [sendPasswordResetEmail, sending] =
     useSendPasswordResetEmail(auth);
     const emailRef=useRef()
     const handleResetPass=async(e)=>{
@@ -29,6 +30,7 @@ const ForgatePassword = () => {
     return (
         <>
         <Navbar />
+        <Helmet><title>Reset Pass</title></Helmet>
 
         <div className='min-h-screen flex justify-center items-center mx-10'>
                  
