@@ -1,5 +1,8 @@
+import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import ManageOrdersRow from './ManageOrdersRow';
 import OrderDeleteModal from './OrderDeleteModal';
@@ -13,7 +16,15 @@ const ManageOrders = () => {
         headers:{
             'authorization':`Bearer ${localStorage.getItem('accessToken')}`
         }
-    }).then(res=>res.json()))
+    }).then(res=>{
+      if(res.status===401 || res.status===403){
+        signOut(auth)
+        localStorage.removeItem('accessToken')
+        toast.error('Forbidden access')
+        return
+      }
+      return res.json()
+    }))
     
     if(isLoading){
         return <div className="flex justify-center items-center h-20">

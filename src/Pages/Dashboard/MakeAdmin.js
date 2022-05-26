@@ -1,5 +1,8 @@
+import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import AdminRow from './AdminRow';
 import MakeAdminModal from './MakeAdminModal';
@@ -12,7 +15,17 @@ const MakeAdmin = () => {
       headers:{
         'authorization':`Bearer ${localStorage.getItem('accessToken')}`
       }
-    }).then(res=>res.json()))
+    }).then(res=>{
+      
+      if(res.status===403 ||res.status===401){
+        signOut(auth)
+        localStorage.removeItem('accessToken')
+        toast.error("Forbidden")
+        return
+      }
+      return res.json()
+    
+    }))
     if(isLoading){
         return <div className='h-screen flex justify-center items-center'><Loading /></div>;
     }
