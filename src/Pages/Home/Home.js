@@ -16,8 +16,9 @@ import Tools from './Tools';
 const Home = () => {
     return (
         <>
-        <Navbar />
+    
         <div className='bg-black'>
+            <Navbar />
             <Helmet><title>Home</title></Helmet>
             <Header /> 
             <Tools />

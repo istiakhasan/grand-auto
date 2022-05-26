@@ -11,6 +11,7 @@ const Navbar = () => {
   const [user, loading] = useAuthState(auth);
   const handleSignOut = () => {
     signOut(auth);
+    localStorage.removeItem('accessToken')
   };
   const menuLinks = (
     <>
@@ -24,10 +25,7 @@ const Navbar = () => {
         <Link to="/Portfolio">Portfolio</Link>
       </li>
 
-      {loading ? (
-        <li>
-          <Loading />{" "}
-        </li>
+      {loading ? (<li><Loading /></li>
       ) : (
         <>
           {user ? (
@@ -51,7 +49,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar sticky bg-primary top-0 z-50 ">
+    <div className={`navbar sticky  top-0 z-50 bg-primary`}>
       <div className="navbar-start">
         <div className="dropdown ">
           <label tabIndex="0" className="btn btn-ghost text-white lg:hidden">
@@ -92,7 +90,7 @@ const Navbar = () => {
             htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button lg:hidden"
           >
-            {" "}
+           
             <MenuAlt2Icon className="w-8 h-8" />
           </label>
         </div>
