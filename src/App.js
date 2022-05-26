@@ -22,6 +22,7 @@ import Portfolio from './Pages/Portfolio/Portfolio';
 import DashboardHome from './Pages/Dashboard/DashboardHome';
 import ManageOrders from './Pages/Dashboard/ManageOrders';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
+import ForgatePassword from './Pages/Login/ForgatePassword';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
        <Route path='/login' element={<Login />} />
        <Route path='/blog' element={<Blog />} />
        <Route path='/portfolio' element={<Portfolio />} />
+       <Route  path='/forgatepass' element={<ForgatePassword />}></Route>  
        
        <Route path='/purchase/:toolsId' element={
          <PrivateRoute>
@@ -47,6 +49,7 @@ function App() {
            <Route  index  element={<DashboardHome />}></Route>  
            <Route  path='myreview' element={<AddReview />}></Route>  
            <Route  path='myprofile' element={<MyProfile />}></Route>  
+           
            <Route  path='makeadmin' element={<AdminPrivateRoute><MakeAdmin /></AdminPrivateRoute>}></Route>  
            <Route  path='addproduct' element={<AdminPrivateRoute><AddProducts /></AdminPrivateRoute>}></Route>  
            <Route  path='manageorders' element={<AdminPrivateRoute><ManageOrders /></AdminPrivateRoute>}></Route>  

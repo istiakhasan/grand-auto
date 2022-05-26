@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   useCreateUserWithEmailAndPassword,
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useToken from "../../hooks/useToken";
 import Loading from "../Shared/Loading";
 import { Helmet } from "react-helmet-async";
@@ -15,7 +16,10 @@ import Footer from "../Shared/Footer";
 import Navbar from "../Shared/Navbar";
 
 const Login = () => {
+
   const [newUser, setNewUser] = useState(false);
+  const [sendPasswordResetEmail, sending, resetError] =
+    useSendPasswordResetEmail(auth);
   //resester user with eamil and password
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth,{emailVerificationOptions:true});
@@ -60,7 +64,7 @@ const Login = () => {
       reset();
     }
   };
-  if (loading || googleLoading || updating || signInloading) {
+  if (loading || googleLoading || updating || signInloading || sending) {
     return (
       <div className="h-screen flex justify-center items-center">
         <Loading />
@@ -78,6 +82,11 @@ const Login = () => {
       </p>
     );
   }
+
+
+
+
+ 
 
   return (
     <>
@@ -179,9 +188,9 @@ const Login = () => {
                   )}
                 </label>
                 <label className="label">
-                  <span className="label-text-alt link link-hover">
+                  <Link to="/forgatepass"  className="label-text-alt link link-hover">
                     Forgot password?
-                  </span>
+                  </Link>
                 </label>
               </div>
               <div className="form-control mt-6">
