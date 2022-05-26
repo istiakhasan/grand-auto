@@ -31,7 +31,7 @@ const MakeAdminModal = ({makeadminData,setMakeAdminData,refetch}) => {
             </p>
             <div className="modal-action">
               <button onClick={handleMakeAdmin}  className="btn bg-green-600 hover:bg-green-700 border-0 btn-sm text-white">Confirm</button>
-              <label  for="makeadminmodal" className="btn btn-sm bg-red-600 text-white border-0 hover:bg-red-700">
+              <label  htmlFor="makeadminmodal" className="btn btn-sm bg-red-600 text-white border-0 hover:bg-red-700">
                 Cancel
               </label>
            

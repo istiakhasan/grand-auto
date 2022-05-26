@@ -36,7 +36,7 @@ const UserDeleteModal = ({setDeleteUserData,deleteUserData,refetch}) => {
             </p>
             <div className="modal-action">
               <button onClick={handleDeleteUser}   className="btn bg-red-600 hover:bg-red-700 border-0 btn-sm text-white">Confirm</button>
-              <label  for="userDeleteModal" className="btn btn-sm bg-green-600 text-white border-0 hover:bg-green-700">
+              <label  htmlFor="userDeleteModal" className="btn btn-sm bg-green-600 text-white border-0 hover:bg-green-700">
                 Cancel
               </label>
            

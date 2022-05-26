@@ -17,7 +17,7 @@ const MakeAdmin = () => {
     }
     return (
         <div>
-            <h2 className='text-primary text-3xl text-center'>Make admin</h2>
+            <h2 className='text-primary text-3xl text-center mb-5'>Make admin</h2>
             <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
           <thead>

@@ -101,7 +101,7 @@ const CheckoutForm = ({orderdProduc}) => {
     if(sending){
       sendingElement= <div className="flex flex-col  justify-center items-center mt-2">
         <p className="text-green-600 text-xs font-bold">Sending please wait...</p>
-        <progress class="progress w-36 bg-green-600"></progress>
+        <progress className="progress w-36 bg-green-600"></progress>
       </div>
     }
     return (

@@ -4,8 +4,6 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute';
 import Purchase from './Pages/Purchase/Purchase';
-import Footer from './Pages/Shared/Footer';
-import Navbar from './Pages/Shared/Navbar';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './Pages/Dashboard/Dashboard';

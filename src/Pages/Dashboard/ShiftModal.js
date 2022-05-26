@@ -21,9 +21,9 @@ const ShiftModa = ({shiftOrder,refetch,setShiftOrder}) => {
 
   return (
     <div>
-      <input type="checkbox" id="shiftmodal" class="modal-toggle" />
-      <div class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
+      <input type="checkbox" id="shiftmodal" className="modal-toggle" />
+      <div className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
           <h3 className="font-bold text-2xl">Are you sure?</h3>
           <p className="py-4">
             Are you sure you want to delete this order? You CAN NOT view this
@@ -34,7 +34,7 @@ const ShiftModa = ({shiftOrder,refetch,setShiftOrder}) => {
               Confirm
             </button>
             <label
-              for="shiftmodal"
+              htmlFor="shiftmodal"
               className="btn btn-sm bg-red-600 text-white border-0 hover:bg-red-700"
             >
               Cancel

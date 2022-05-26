@@ -19,7 +19,7 @@ const Purchase = () => {
      const [newOrderQuantity,setNewOrderQuantity]=useState(tool?.minimum_quantity)
       
      if(isLoading){     
-       return  <div> <Loading /> </div>
+       return  <div className="h-screen flex justify-center items-center"> <Loading /> </div>
       }
   
     const handleChange=(e)=>{
