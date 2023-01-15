@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 const ProductDeleteModal = ({deleteProduct,refetch,setDeleteProduct}) => {
     const handleDeleteProduct=()=>{
-          const url=`https://grandauto.herokuapp.com/tools/${deleteProduct._id}`
+          const url=`https://grand-auto-server.onrender.com/tools/${deleteProduct._id}`
           fetch(url,{
               method:"Delete",
               headers:{

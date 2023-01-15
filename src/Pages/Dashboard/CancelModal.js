@@ -2,7 +2,7 @@ import React from "react";
 
 const CancelModal = ({setDeleteOrder,deleteOrder,refetch}) => {
   const handleCancel = () => {
-    fetch(`https://grandauto.herokuapp.com/order/${deleteOrder._id}`, {
+    fetch(`https://grand-auto-server.onrender.com/order/${deleteOrder._id}`, {
         method: "DELETE"
       })
       .then(res => res.json())

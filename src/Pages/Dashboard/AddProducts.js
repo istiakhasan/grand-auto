@@ -60,7 +60,7 @@ const AddProducts = () => {
             price,
           };
 
-          fetch("https://grandauto.herokuapp.com/addproduct", {
+          fetch("https://grand-auto-server.onrender.com/addproduct", {
               method: "POST",
               headers: {
                 "content-type": "application/json",

@@ -2,7 +2,7 @@ import React from 'react';
 
 const OrderDeleteModal = ({ deleteOrder, refetch, setDeleteOrder }) => {
     const handleDeleteOrder=()=>{
-        fetch(`https://grandauto.herokuapp.com/order/${deleteOrder._id}`,{
+        fetch(`https://grand-auto-server.onrender.com/order/${deleteOrder._id}`,{
           method:"DELETE",
           headers:{
               'authorization':`Bearer ${localStorage.getItem('accessToken')}`

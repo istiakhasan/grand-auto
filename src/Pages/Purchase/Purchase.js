@@ -14,7 +14,7 @@ const Purchase = () => {
      const inpurRef=useRef()
      const {toolsId}=useParams();
      const [isOpen,setIsOpen]=useState(false)
-     const url=`https://grandauto.herokuapp.com/tools/${toolsId}`
+     const url=`https://grand-auto-server.onrender.com/tools/${toolsId}`
      const {data:tool,isLoading,refetch}=useQuery(`tool${toolsId}`,()=>fetch(url).then(res=>res.json())) 
      const [newOrderQuantity,setNewOrderQuantity]=useState(tool?.minimum_quantity)
       

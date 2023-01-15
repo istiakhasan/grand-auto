@@ -13,7 +13,7 @@ const MyProfile = () => {
      error,
     refetch,
   } = useQuery(`profile-information${user.email}`, () =>
-    fetch(`https://grandauto.herokuapp.com/profile-details/?email=${user.email}`,{
+    fetch(`https://grand-auto-server.onrender.com/profile-details/?email=${user.email}`,{
       headers:{
         'authorization':`Bearer ${localStorage.getItem('accessToken')}`
       }
@@ -48,7 +48,7 @@ if(error){
       name: user.displayName,
       email: user.email,
     };
-    fetch(`https://grandauto.herokuapp.com/profile-details/${user.email}`, {
+    fetch(`https://grand-auto-server.onrender.com/profile-details/${user.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

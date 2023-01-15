@@ -16,7 +16,7 @@ const MyOrder = () => {
     isLoading,
     refetch
   } = useQuery("myorder", () =>
-    fetch(`https://grandauto.herokuapp.com/order?email=${user.email}`, {
+    fetch(`https://grand-auto-server.onrender.com/order?email=${user.email}`, {
       headers: {
         'authorization': `Bearer ${localStorage.getItem('accessToken')}`
       }

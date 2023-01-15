@@ -11,7 +11,7 @@ const ContactForm = () => {
            const data={
                name,email,subject,message
            }
-           fetch('https://grandauto.herokuapp.com/sendmessage',{
+           fetch('https://grand-auto-server.onrender.com/sendmessage',{
              method:"POST",
              headers:{
                'content-type':'application/json'

@@ -13,7 +13,7 @@ const useToken=(user)=>{
     const signInUser={email:email}
     
     if(email){
-        fetch(`https://grandauto.herokuapp.com/user/${email}`,{
+        fetch(`https://grand-auto-server.onrender.com/user/${email}`,{
             method:"PUT",
             headers:{
                 'content-type':'application/json'

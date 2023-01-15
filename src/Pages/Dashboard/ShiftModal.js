@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const ShiftModa = ({shiftOrder,refetch,setShiftOrder}) => {
   const handleShiftOrder=()=>{
-    const url=`https://grandauto.herokuapp.com/updatestatus/${shiftOrder._id}`
+    const url=`https://grand-auto-server.onrender.com/updatestatus/${shiftOrder._id}`
     fetch(url,{
         method:"PATCH",
         headers:{

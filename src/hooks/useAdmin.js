@@ -7,7 +7,7 @@ const useAdmin=(user)=>{
     useEffect(()=>{
         const email=user?.email
         if(email){
-            fetch(`https://grandauto.herokuapp.com/admin?email=${email}`)
+            fetch(`https://grand-auto-server.onrender.com/admin?email=${email}`)
             .then(res=>res.json())
             .then(data=>{
                     setAdmin(data.admin)

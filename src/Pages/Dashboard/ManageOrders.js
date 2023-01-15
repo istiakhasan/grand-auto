@@ -11,7 +11,7 @@ import ShiftModal from './ShiftModal';
 const ManageOrders = () => {
   const [deleteOrder,setDeleteOrder]=useState(null)
   const [shiftOrder,setShiftOrder]=useState(null)
-    const {data:ordersProduct,isLoading,refetch}=useQuery('allorders',()=>fetch('https://grandauto.herokuapp.com/allorders',{
+    const {data:ordersProduct,isLoading,refetch}=useQuery('allorders',()=>fetch('https://grand-auto-server.onrender.com/allorders',{
         method:"GET",
         headers:{
             'authorization':`Bearer ${localStorage.getItem('accessToken')}`
